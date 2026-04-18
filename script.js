@@ -9,34 +9,34 @@ const aliens = [
     name: "Heatblast",
     species: "Pyronite",
     planet: "Pyros",
-    image: "images/heatblastpfp.png",
+    image: "/images/heatblastpfp.png",
     series: "classic",
     powers: ["Fire control", "Flight", "Heat resistance"],
     weaknesses: ["Water", "Extreme cold"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/heatblastos.png" }
+        { label: "Base", image: "/images/heatblastos.png" }
       ],
       ultimate: [
-        { label: "Base", image: "images/heatblastua.png" }
+        { label: "Base", image: "/images/heatblastua.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/heatblastov.png" }
+        { label: "Base", image: "/images/heatblastov.png" }
       ],
       reboot: [
-        { label: "Base", image: "images/heatblastreboot.png" },
+        { label: "Base", image: "/images/heatblastreboot.png" },
         {
-          label: "Omni-Enhanced", image: "images/heatblastomnienhanced.png",
+          label: "Omni-Enhanced", image: "/images/heatblastomnienhanced.png",
           powers: ["Enhanced fire blasts", "Energy-infused attacks", "Heat resistance"],
           weaknesses: ["Water", "Energy instability"]
         },
         {
-          label: "Omni-Kix", image: "images/heatblastomnikix.png",
+          label: "Omni-Kix", image: "/images/heatblastomnikix.png",
           powers: ["Armored body", "Heavy fire attacks", "Greater durability"],
           weaknesses: ["Less speed", "Heavy movement"]
         },
         {
-          label: "Omni-Naut", image: "images/heatblastomninaut.png",
+          label: "Omni-Naut", image: "/images/heatblastomninaut.png",
           powers: ["Space mobility", "Fire jets", "Vacuum resistance"],
           weaknesses: ["Lower agility", "Bulky suit"]
         }
@@ -47,24 +47,24 @@ const aliens = [
     name: "Wildmutt",
     species: "Vulpimancer",
     planet: "Vulpin",
-    image: "images/wildmuttpfp.png",
+    image: "/images/wildmuttpfp.png",
     series: "classic",
     powers: ["Enhanced senses", "Enhanced agility", "Sharp claws and teeth"],
     weaknesses: ["No eyesight or speech", "Senses can be overwhelmed"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/wildmuttos.png" }
+        { label: "Base", image: "/images/wildmuttos.png" }
       ],
       ultimate: [
-        { label: "Base", image: "images/wildmuttua.png" },
+        { label: "Base", image: "/images/wildmuttua.png" },
         {
-          label: "Ultimate", image: "images/wildmuttultimate.png",
+          label: "Ultimate", image: "/images/wildmuttultimate.png",
           powers: ["Enhanced senses", "Spiked tail", "Greater strength"],
           weaknesses: ["Less agility", "Harder to maneuver in tight spaces"]
         }
       ],
       omniverse: [
-        { label: "Base", image: "images/wildmuttov.png" }
+        { label: "Base", image: "/images/wildmuttov.png" }
       ]
     }
   },
@@ -72,29 +72,29 @@ const aliens = [
     name: "Diamondhead",
     species: "Petrosapien",
     planet: "Petropia",
-    image: "images/diamondheadpfp.png",
+    image: "/images/diamondheadpfp.png",
     series: "classic",
     powers: ["Crystal generation", "Crystal weapons", "Regeneration"],
     weaknesses: ["Powerful sonic vibrations", "Extreme force can shatter him"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/diamondheados.png" }
+        { label: "Base", image: "/images/diamondheados.png" }
       ],
       alienforce: [
-        { label: "Base", image: "images/diamondheadaf.png" }
+        { label: "Base", image: "/images/diamondheadaf.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/diamondheadov.png" }
+        { label: "Base", image: "/images/diamondheadov.png" }
       ],
       reboot: [
-        { label: "Base", image: "images/diamondheadreboot.png" },
+        { label: "Base", image: "/images/diamondheadreboot.png" },
         {
-          label: "Omni-Enhanced", image: "images/diamondheadomnienhanced.png",
+          label: "Omni-Enhanced", image: "/images/diamondheadomnienhanced.png",
           powers: ["Crystal manipulation", "Blue energy blasts", "Energy absorption", "Crystal weapon creation", "Enhanced durability"],
           weaknesses: ["Strong sonic vibrations"]
         },
         {
-          label: "Omni-Kix", image: "images/diamondheadomnikix.png",
+          label: "Omni-Kix", image: "/images/diamondheadomnikix.png",
           powers: ["Crystallokinesis", "Omni-Kix gauntlets", "Shield blades"],
           weaknesses: ["Can crack or shatter under enough force"]
         }
@@ -105,29 +105,29 @@ const aliens = [
     name: "XLR8",
     species: "Kineceleran",
     planet: "Kinet",
-    image: "images/xlr8pfp.png",
+    image: "/images/xlr8pfp.png",
     series: "classic",
     powers: ["Super speed", "Enhanced reflexes", "Sharp tail"],
     weaknesses: ["Slippery or sticky surfaces", "Magnets and charged pulses"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/xlr8os.png" }
+        { label: "Base", image: "/images/xlr8os.png" }
       ],
       ultimate: [
-        { label: "Base", image: "images/xlr8ua.png" }
+        { label: "Base", image: "/images/xlr8ua.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/xlr8ov.png" }
+        { label: "Base", image: "/images/xlr8ov.png" }
       ],
       reboot: [
-        { label: "Base", image: "images/xlr8reboot.png" },
+        { label: "Base", image: "/images/xlr8reboot.png" },
         {
-          label: "Omni-Enhanced", image: "images/xlr8omnienhanced.png",
+          label: "Omni-Enhanced", image: "/images/xlr8omnienhanced.png",
           powers: ["Enhanced speed", "Turbo-charged energy kicks", "Electric tail attacks"],
           weaknesses: ["Slippery or sticky surfaces", "Hard to stop at high speed"],
         },
         {
-          label: "Omni-Kix", image: "images/xlr8omnikix.png",
+          label: "Omni-Kix", image: "/images/xlr8omnikix.png",
           powers: ["Hypersonic speed", "Omni-Kix armor", "Air dashes", "Enhanced durability"],
           weaknesses: ["Slippery or sticky surfaces", "Hard to stop at high speed"]
         }
@@ -138,21 +138,26 @@ const aliens = [
     name: "Grey Matter",
     species: "Galvan",
     planet: "Galvan Prime",
-    image: "images/greymatterpfp.png",
+    image: "/images/greymatterpfp.png",
     series: "classic",
     powers: ["Super intelligence", "Small size", "Tech expertise"],
     weaknesses: ["Very low physical strength", "Tiny body is easy to grab"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/greymatteros.png" }
+        { label: "Base", image: "/images/greymatteros.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/greymatterov.png" }
+        { label: "Base", image: "/images/greymatterov.png" },
+        {
+          label: "Ultimate", image: "/images/greymatterultimate.png",
+          powers: ["Enhanced intelligence", "Future scenario prediction", "Energy eye beams"],
+          weaknesses: ["Dependent on on his hovercraft because of his oversized head and tiny limbs"]
+        }
       ],
       reboot: [
-        { label: "Base", image: "images/greymatterreboot.png" },
+        { label: "Base", image: "/images/greymatterreboot.png" },
         {
-          label: "Omni-Enhanced", image: "images/greymatteromnienhanced.png",
+          label: "Omni-Enhanced", image: "/images/greymatteromnienhanced.png",
           powers: ["Enhanced intelligence", "Electric shocks", "Limb extension", "Electrical shockwaves", "Enhanced durability"],
           weaknesses: ["Loses his small size", "Still weak against heavy hitters"]
         }
@@ -163,30 +168,30 @@ const aliens = [
     name: "Fourarms",
     species: "Tetramand",
     planet: "Khoros",
-    image: "images/fourarmspfp.png",
+    image: "/images/fourarmspfp.png",
     series: "classic",
     alias: "four arms",
     powers: ["Super strength", "Shockwave claps", "Enhanced jumping"],
     weaknesses: ["Large target"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/fourarmsos.png" }
+        { label: "Base", image: "/images/fourarmsos.png" }
       ],
       ultimate: [
-        { label: "Base", image: "images/fourarmsua.png" }
+        { label: "Base", image: "/images/fourarmsua.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/fourarmsov.png" }
+        { label: "Base", image: "/images/fourarmsov.png" }
       ],
       reboot: [
-        { label: "Base", image: "images/fourarmsreboot.png" },
+        { label: "Base", image: "/images/fourarmsreboot.png" },
         {
-          label: "Omni-Enhanced", image: "images/fourarmsomnienhanced.png",
+          label: "Omni-Enhanced", image: "/images/fourarmsomnienhanced.png",
           powers: ["Enhanced strength", "Energy fists", "Shock waves", "Enhanced durability", "Enhanced jumping"],
           weaknesses: ["Bulky size"],
         },
         {
-          label: "Omni-Kix", image: "images/fourarmsomnikix.png",
+          label: "Omni-Kix", image: "/images/fourarmsomnikix.png",
           powers: ["Enhanced strength", "Omni-Kix armor", "Rocket fists", "Magnetic fist reattachment", "Intense punch power"],
           weaknesses: ["Large target", "Slow movement"],
         }
@@ -198,25 +203,25 @@ const aliens = [
     name: "Stinkfly",
     species: "Lepidopterran",
     planet: "Lepidopterra",
-    image: "images/stinkflypfp.png",
+    image: "/images/stinkflypfp.png",
     series: "classic",
     powers: ["Flight", "Slime projectiles", "Sharp tail stinger"],
     weaknesses: ["Fragile wings", "Close-range attacks"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/stinkflyos.png" }
+        { label: "Base", image: "/images/stinkflyos.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/stinkflyov.png" }
+        { label: "Base", image: "/images/stinkflyov.png" }
       ],
       reboot: [
         {
-          label: "Base", image: "images/stinkflyreboot.png",
+          label: "Base", image: "/images/stinkflyreboot.png",
           powers: ["Flight", "Slime projectiles", "Bioluminiescence"],
           weaknesses: ["Fragile wings", "Close-range attacks"]
         },
         {
-          label: "Omni-Enhanced", image: "images/stinkflyomnienhanced.png",
+          label: "Omni-Enhanced", image: "/images/stinkflyomnienhanced.png",
           powers: ["Flight", "Electric sticky goo/spit", "Shock power hands"],
           weaknesses: ["Can get trapped in his own goo", "External electricity"],
         }
@@ -228,19 +233,19 @@ const aliens = [
     name: "Ripjaws",
     species: "Piscciss Volann",
     planet: "Piscciss",
-    image: "images/ripjawspfp.png",
+    image: "/images/ripjawspfp.png",
     series: "classic",
     powers: ["Underwater breathing", "Enhanced swimming", "Powerful bite"],
     weaknesses: ["Dehydration", "Dry environments"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/ripjawsos.png" }
+        { label: "Base", image: "/images/ripjawsos.png" }
       ],
       ultimate: [
-        { label: "Base", image: "images/ripjawsua.png" }
+        { label: "Base", image: "/images/ripjawsua.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/ripjawsov.png" }
+        { label: "Base", image: "/images/ripjawsov.png" }
       ]
     }
   },
@@ -248,22 +253,22 @@ const aliens = [
     name: "Upgrade",
     species: "Galvanic Mechamorph",
     planet: "Galvan B",
-    image: "images/upgradepfp.png",
+    image: "/images/upgradepfp.png",
     series: "classic",
     powers: ["Technological merging", "Machine manipulation", "Liquid metal body"],
     weaknesses: ["Electromagnetic attacks", "Tech disruption"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/upgradeos.png" }
+        { label: "Base", image: "/images/upgradeos.png" }
       ],
       ultimate: [
-        { label: "Base", image: "images/upgradeua.png" }
+        { label: "Base", image: "/images/upgradeua.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/upgradeov.png" }
+        { label: "Base", image: "/images/upgradeov.png" }
       ],
       reboot: [
-        { label: "Base", image: "images/upgradereboot.png" }
+        { label: "Base", image: "/images/upgradereboot.png" }
       ]
     }
   },
@@ -271,22 +276,22 @@ const aliens = [
     name: "Ghostfreak",
     species: "Ectonurite",
     planet: "Anur Phaetos",
-    image: "images/ghostfreakpfp.png",
+    image: "/images/ghostfreakpfp.png",
     series: "classic",
     powers: ["Invisibility", "Intangibility", "Possession"],
     weaknesses: ["Sunlight", "Energy attacks"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/ghostfreakos.png" }
+        { label: "Base", image: "/images/ghostfreakos.png" }
       ],
       alienforce1: [
-        { label: "Base", image: "images/ghostfreakaf.png" }
+        { label: "Base", image: "/images/ghostfreakaf.png" }
       ],
       ultimate: [
-        { label: "Base", image: "images/ghostfreakua.png" }
+        { label: "Base", image: "/images/ghostfreakua.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/ghostfreakov.png" }
+        { label: "Base", image: "/images/ghostfreakov.png" }
       ]
     }
   },
@@ -294,34 +299,34 @@ const aliens = [
     name: "Cannonbolt",
     species: "Arburian Pelarota",
     planet: "Arburia",
-    image: "images/cannonboltpfp.png",
+    image: "/images/cannonboltpfp.png",
     series: "classic",
     powers: ["Extreme durability", "Rolling attack", "Powerful momentum"],
     weaknesses: ["Loss of control", "Confined spaces"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/cannonboltos.png" }
+        { label: "Base", image: "/images/cannonboltos.png" }
       ],
       alienforce: [
-        { label: "Base", image: "images/cannonboltaf.png" },
+        { label: "Base", image: "/images/cannonboltaf.png" },
         {
-          label: "Ultimate", image: "images/cannonboltultimate.png",
+          label: "Ultimate", image: "/images/cannonboltultimate.png",
           powers: ["Spiked armor", "Extreme durability", "Explosive rolling attack"],
           weaknesses: ["Loss of control", "Confined spaces"]
         }
       ],
       omniverse: [
-        { label: "Base", image: "images/cannonboltov.png" }
+        { label: "Base", image: "/images/cannonboltov.png" }
       ],
       reboot: [
-        { label: "Base", image: "images/cannonboltreboot.png" },
+        { label: "Base", image: "/images/cannonboltreboot.png" },
         {
-          label: "Omni-Enhanced", image: "images/cannonboltomnienhanced.png",
+          label: "Omni-Enhanced", image: "/images/cannonboltomnienhanced.png",
           powers: ["Enhanced durability", "High-speed rolling attack", "Energy-charged impact"],
           weaknesses: ["Loss of control", "Confined spaces"]
         },
         {
-          label: "Omni-Kix", image: "images/cannonboltomnikix.png",
+          label: "Omni-Kix", image: "/images/cannonboltomnikix.png",
           powers: ["Heavy armor", "Extreme durability", "Powerful rolling attack"],
           weaknesses: ["Reduced agility", "Loss of control"]
         }
@@ -332,21 +337,21 @@ const aliens = [
     name: "Wildvine",
     species: "Florauna",
     planet: "Flors Verdance",
-    image: "images/wildvinepfp.png",
+    image: "/images/wildvinepfp.png",
     series: "classic",
     powers: ["Plant regeneration", "Vine attacks", "Explosive seeds"],
     weaknesses: ["Fire", "Extreme cold"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/wildvineos.png" }
+        { label: "Base", image: "/images/wildvineos.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/wildvineov.png" }
+        { label: "Base", image: "/images/wildvineov.png" }
       ],
       reboot: [
-        { label: "Base", image: "images/wildvinereboot.png" },
+        { label: "Base", image: "/images/wildvinereboot.png" },
         {
-          label: "Omni-Enhanced", image: "images/wildvineomnienhanced.png",
+          label: "Omni-Enhanced", image: "/images/wildvineomnienhanced.png",
           powers: ["Enhanced plant regeneration", "Stronger vine attacks", "Energy-charged explosive seeds"],
           weaknesses: ["Fire", "Extreme cold"]
         }
@@ -357,17 +362,17 @@ const aliens = [
     name: "Blitzwolfer",
     species: "Loboan",
     planet: "Luna Lobo",
-    image: "images/benwolfpfp.png",
+    image: "/images/benwolfpfp.png",
     series: "classic",
     alias: "benwolf",
     powers: ["Sonic howl", "Enhanced agility", "Sharp claws"],
     weaknesses: ["Sound-sensitive environments", "Close-range counters"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/benwolfos.png" }
+        { label: "Base", image: "/images/benwolfos.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/benwolfov.png" }
+        { label: "Base", image: "/images/benwolfov.png" }
       ]
     }
   },
@@ -375,19 +380,22 @@ const aliens = [
     name: "Upchuck",
     species: "Gourmand",
     planet: "Peptos XI",
-    image: "images/upchuckpfp.png",
+    image: "/images/upchuckpfp.png",
     series: "classic",
     powers: ["Matter ingestion", "Energy blasts", "Acid spit"],
     weaknesses: ["Overeating", "Physical restraint"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/upchuckos.png" }
+        { label: "Base (Perk)", image: "/images/upchuckos.png" }
       ],
       alienforce: [
-        { label: "Base", image: "images/upchuckaf.png" }
+        { label: "Base (Murk)", image: "/images/upchuckaf.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/upchuckov.png" }
+        { label: "Base (Perk)", image: "/images/upchuckov.png" },
+        {
+          label: "Base (Murk)", image: "/images/upchuckov2.png"
+        }
       ]
     }
   },
@@ -395,17 +403,17 @@ const aliens = [
     name: "Snare-Oh",
     species: "Thep Khufan",
     planet: "Anur Khufos",
-    image: "images/benmummypfp.png",
+    image: "/images/benmummypfp.png",
     series: "classic",
     alias: "benmummy",
     powers: ["Elastic bandages", "Body wrapping", "Regeneration"],
     weaknesses: ["Fire", "Sharp cutting attacks"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/benmummyos.png" }
+        { label: "Base", image: "/images/benmummyos.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/benmummyov.png" }
+        { label: "Base", image: "/images/benmummyov.png" }
       ]
     }
   },
@@ -413,17 +421,17 @@ const aliens = [
     name: "Frankenstrike",
     species: "Transylian",
     planet: "Anur Transyl",
-    image: "images/benviktorpfp.png",
+    image: "/images/benviktorpfp.png",
     series: "classic",
     alias: "benviktor",
     powers: ["Electrical attacks", "Super strength", "Enhanced durability"],
     weaknesses: ["Insulation", "Energy overload"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/benviktoros.png" }
+        { label: "Base", image: "/images/benviktoros.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/benviktorov.png" }
+        { label: "Base", image: "/images/benviktorov.png" }
       ]
     }
   },
@@ -431,16 +439,16 @@ const aliens = [
     name: "Ditto",
     species: "Splixson",
     planet: "Hathor",
-    image: "images/dittopfp.png",
+    image: "/images/dittopfp.png",
     series: "classic",
     powers: ["Duplication", "Enhanced agility", "Coordinated attacks"],
     weaknesses: ["Shared pain", "Low physical strength"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/dittoos.png" }
+        { label: "Base", image: "/images/dittoos.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/dittoov.png" }
+        { label: "Base", image: "/images/dittoov.png" }
       ]
     }
   },
@@ -448,16 +456,16 @@ const aliens = [
     name: "Eye Guy",
     species: "Opticoid",
     planet: "Sightra",
-    image: "images/eyeguypfp.png",
+    image: "/images/eyeguypfp.png",
     series: "classic",
     powers: ["Energy beams", "360-degree vision", "Multiple elemental attacks"],
     weaknesses: ["Sensitive eyes", "Vision obstruction"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/eyeguyos.png" }
+        { label: "Base", image: "/images/eyeguyos.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/eyeguyov.png" }
+        { label: "Base", image: "/images/eyeguyov.png" }
       ]
     }
   },
@@ -465,27 +473,27 @@ const aliens = [
     name: "Way Big",
     species: "To'kustar",
     planet: "None; born in cosmic storms",
-    image: "images/waybigpfp.png",
+    image: "/images/waybigpfp.png",
     series: "classic",
     powers: ["Gigantic size", "Super strength", "Cosmic energy blasts", "Super speed"],
     weaknesses: ["Large target"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/waybigos.png" }
+        { label: "Base", image: "/images/waybigos.png" }
       ],
       alienforce: [
-        { label: "Base", image: "images/waybigaf.png" },
+        { label: "Base", image: "/images/waybigaf.png" },
         {
-          label: "Ultimate", image: "images/waybigultimate.png",
+          label: "Ultimate", image: "/images/waybigultimate.png",
           powers: ["Enhanced cosmic energy blasts", "Massive super strength", "Extreme durability"],
           weaknesses: ["Large target"]
         }
       ],
       omniverse: [
-        { label: "Base", image: "images/waybigov.png" }
+        { label: "Base", image: "/images/waybigov.png" }
       ],
       reboot: [
-        { label: "Base", image: "images/waybigreboot.png" }
+        { label: "Base", image: "/images/waybigreboot.png" }
       ]
     }
   },
@@ -493,14 +501,14 @@ const aliens = [
     name: "Ben/Eon",
     species: "Chronian",
     planet: "Chronia",
-    image: "images/beneonpfp.png",
+    image: "/images/beneonpfp.png",
     series: "classic",
     aliases: ["beneon", "eon"],
     powers: ["Time manipulation", "Energy blasts", "Flight"],
     weaknesses: ["Energy overload", "Physical disruption"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/beneonos.png" }
+        { label: "Base", image: "/images/beneonos.png" }
       ]
     }
   },
@@ -508,13 +516,13 @@ const aliens = [
     name: "Spitter",
     species: "Sphoeroid",
     planet: "Scalpasc",
-    image: "images/spitterpfp.png",
+    image: "/images/spitterpfp.png",
     series: "classic",
     powers: ["Slime blasts", "High-pressure spit", "Enhanced durability"],
     weaknesses: ["Limited mobility", "Close-range attacks"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/spitteros.png" }
+        { label: "Base", image: "/images/spitteros.png" }
       ]
     }
   },
@@ -522,16 +530,19 @@ const aliens = [
     name: "Buzzshock",
     species: "Nosedeenian",
     planet: "Nosideen quasar",
-    image: "images/buzzshockpfp.png",
+    image: "/images/buzzshockpfp.png",
     series: "classic",
     powers: ["Electricity manipulation", "Energy blasts", "Duplication"],
     weaknesses: ["Insulation", "Energy absorption"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/buzzshockos.png" }
+        { label: "Base", image: "/images/buzzshockos.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/buzzshockov.png" }
+        { label: "Base", image: "/images/buzzshockov.png" }
+      ],
+      reboot: [
+        { label: "Base", image: "/images/buzzshockreboot.png" }
       ]
     }
   },
@@ -539,16 +550,21 @@ const aliens = [
     name: "Arctiguana",
     species: "Polar Manzardill",
     planet: "X'Nelli",
-    image: "images/arctiguanapfp.png",
+    image: "/images/arctiguanapfp.png",
     series: "classic",
     powers: ["Ice breath", "Cryokinesis", "Enhanced agility"],
     weaknesses: ["Extreme heat", "Close-range attacks"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/arctiguanaos.png" }
+        { label: "Base", image: "/images/arctiguanaos.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/arctiguanaov.png" }
+        { label: "Base", image: "/images/arctiguanaov.png" },
+        {
+          label: "Ultimate", image: "/images/arctiguanaultimate.png",
+          powers: ["Ice cannons"],
+          weaknesses: ["Less agility"]
+        }
       ]
     }
   },
@@ -556,24 +572,24 @@ const aliens = [
     name: "Swampfire",
     species: "Methanosian",
     planet: "Methanos",
-    image: "images/swampfirepfp.png",
+    image: "/images/swampfirepfp.png",
     series: "alienforce",
     powers: ["Fire generation", "Plant control", "Regeneration"],
     weaknesses: ["Cold temperatures", "Water saturation"],
     looksBySeries: {
       alienforce: [
-        { label: "Base", image: "images/swampfireaf.png" },
+        { label: "Base", image: "/images/swampfireaf.png" },
         {
-          label: "Ultimate", image: "images/swampfireultimate.png",
+          label: "Ultimate", image: "/images/swampfireultimate.png",
           powers: ["Blue fire generation", "Enhanced regeneration", "Plant manipulation"],
           weaknesses: ["Extreme cold", "Water saturation"],
         }
       ],
       omniverse: [
-        { label: "Blossomed", image: "images/swampfireov4.png" },
-        { label: "Pre-blossom", image: "images/swampfireov1.png" },
-        { label: "Blossoming 1", image: "images/swampfireov2.png" },
-        { label: "Blossoming 2", image: "images/swampfireov3.png" }
+        { label: "Blossomed", image: "/images/swampfireov4.png" },
+        { label: "Pre-blossom", image: "/images/swampfireov1.png" },
+        { label: "Blossoming 1", image: "/images/swampfireov2.png" },
+        { label: "Blossoming 2", image: "/images/swampfireov3.png" }
       ]
     }
   },
@@ -581,21 +597,26 @@ const aliens = [
     name: "Echo Echo",
     species: "Sonorosian",
     planet: "Sonorosia",
-    image: "images/echoechopfp.png",
+    image: "/images/echoechopfp.png",
     series: "alienforce",
     powers: ["Sound duplication", "Sonic screams", "Audio shockwaves"],
     weaknesses: ["Sound dampening", "Fragile body"],
     looksBySeries: {
       alienforce: [
-        { label: "Base", image: "images/echoechoaf.png" },
+        { label: "Base", image: "/images/echoechoaf.png" },
         {
-          label: "Ultimate", image: "images/echoechoultimate.png",
+          label: "Ultimate", image: "/images/echoechoultimate.png",
           powers: ["Enhanced sonic screams", "Sound duplication", "Powerful shockwaves"],
           weaknesses: ["Sound dampening", "Fragile body"],
         }
       ],
       omniverse: [
-        { label: "Base", image: "images/echoechoov.png" }
+        { label: "Base", image: "/images/echoechoov.png" },
+        {
+          label: "Ultimate", image: "/images/echoechoultimateov.png",
+          powers: ["Enhanced sonic screams", "Sound duplication", "Powerful shockwaves"],
+          weaknesses: ["Sound dampening", "Fragile body"],
+        }
       ]
     }
   },
@@ -603,31 +624,36 @@ const aliens = [
     name: "Humungosaur",
     species: "Vaxasaurian",
     planet: "Terradino",
-    image: "images/humungosaurpfp.png",
+    image: "/images/humungosaurpfp.png",
     series: "alienforce",
     powers: ["Super strength", "Size growth", "Powerful tail attacks"],
     weaknesses: ["Large target", "Reduced agility when enlarged"],
     looksBySeries: {
       alienforce: [
-        { label: "Base", image: "images/humungosauraf.png" },
+        { label: "Base", image: "/images/humungosauraf.png" },
         {
-          label: "Ultimate", image: "images/humungosaurultimate.png",
+          label: "Ultimate", image: "/images/humungosaurultimate.png",
           powers: ["Enhanced super strength", "Missile launchers", "Extreme durability"],
           weaknesses: ["Large target", "Reduced agility"]
         },
       ],
       omniverse: [
-        { label: "Base", image: "images/humungosaurov.png" }
+        { label: "Base", image: "/images/humungosaurov.png" },
+        {
+          label: "Ultimate", image: "/images/humungosaurultimateov.png",
+          powers: ["Enhanced super strength", "Missile launchers", "Extreme durability"],
+          weaknesses: ["Large target", "Reduced agility"]
+        },
       ],
       reboot: [
-        { label: "Base", image: "images/humungosaurreboot.png" },
+        { label: "Base", image: "/images/humungosaurreboot.png" },
         {
-          label: "Omni-Kix", image: "images/humungosauromnikix.png",
+          label: "Omni-Kix", image: "/images/humungosauromnikix.png",
           powers: ["Heavy armor", "Enhanced super strength", "Rocket-powered attacks"],
           weaknesses: ["Reduced agility", "Large target"]
         },
         {
-          label: "Omni-Naut", image: "images/humungosauromninaut.png",
+          label: "Omni-Naut", image: "/images/humungosauromninaut.png",
           powers: ["Space combat", "Enhanced super strength", "Pressure resistance"],
           weaknesses: ["Reduced speed on land", "Large target"]
         }
@@ -638,23 +664,23 @@ const aliens = [
     name: "Jetray",
     species: "Aerophibian",
     planet: "Aeropela",
-    image: "images/jetraypfp.png",
+    image: "/images/jetraypfp.png",
     series: "alienforce",
     powers: ["Flight", "Neuroshock blasts", "High-speed travel"],
     weaknesses: ["Confined spaces", "Heavy impacts"],
     looksBySeries: {
       alienforce: [
-        { label: "Base", image: "images/jetrayaf.png" }
+        { label: "Base", image: "/images/jetrayaf.png" }
       ],
       reboot: [
-        { label: "Base", image: "images/jetrayreboot.png" },
+        { label: "Base", image: "/images/jetrayreboot.png" },
         {
-          label: "Omni-Kix", image: "images/jetrayomnikix.png",
+          label: "Omni-Kix", image: "/images/jetrayomnikix.png",
           powers: ["Armored flight", "Neuroshock blasts", "High-speed attacks"],
           weaknesses: ["Reduced agility", "Confined spaces"]
         },
         {
-          label: "Omni-Naut", image: "images/jetrayomninaut.png",
+          label: "Omni-Naut", image: "/images/jetrayomninaut.png",
           powers: ["Space flight", "Neuroshock blasts", "Pressure resistance"],
           weaknesses: ["Reduced speed on land", "Confined spaces"]
         }
@@ -665,21 +691,21 @@ const aliens = [
     name: "Big Chill",
     species: "Necrofriggian",
     planet: "Kylmyys",
-    image: "images/bigchillpfp.png",
+    image: "/images/bigchillpfp.png",
     series: "alienforce",
     powers: ["Intangibility", "Ice breath", "Flight"],
     weaknesses: ["Extreme heat", "Energy attacks"],
     looksBySeries: {
       alienforce: [
-        { label: "Base", image: "images/bigchillaf.png" },
+        { label: "Base", image: "/images/bigchillaf.png" },
         {
-          label: "Ultimate", image: "images/bigchillultimate.png",
+          label: "Ultimate", image: "/images/bigchillultimate.png",
           powers: ["Enhanced ice breath", "Intangibility", "Flight"],
           weaknesses: ["Extreme heat", "Energy attacks"]
         },
       ],
       omniverse: [
-        { label: "Base", image: "images/bigchillov.png" }
+        { label: "Base", image: "/images/bigchillov.png" }
       ]
     }
   },
@@ -687,16 +713,16 @@ const aliens = [
     name: "Chromastone",
     species: "Crystalsapien",
     planet: "Petropia",
-    image: "images/chromastonepfp.png",
+    image: "/images/chromastonepfp.png",
     series: "alienforce",
     powers: ["Energy absorption", "Crystal durability", "Energy blasts"],
     weaknesses: ["Physical shattering", "Energy overload"],
     looksBySeries: {
       alienforce: [
-        { label: "Base", image: "images/chromastoneaf.png" },
+        { label: "Base", image: "/images/chromastoneaf.png" },
       ],
       omniverse: [
-        { label: "Base", image: "images/chromastoneov.png" }
+        { label: "Base", image: "/images/chromastoneov.png" }
       ]
     }
   },
@@ -704,16 +730,16 @@ const aliens = [
     name: "Brainstorm",
     species: "Cerebrocrustacean",
     planet: "Encephalonus IV",
-    image: "images/brainstormpfp.png",
+    image: "/images/brainstormpfp.png",
     series: "alienforce",
     powers: ["Electrokinesis", "Super intelligence", "Force fields"],
     weaknesses: ["Physical vulnerability", "Overreliance on intellect"],
     looksBySeries: {
       alienforce: [
-        { label: "Base", image: "images/brainstormaf.png" },
+        { label: "Base", image: "/images/brainstormaf.png" },
       ],
       omniverse: [
-        { label: "Base", image: "images/brainstormov.png" }
+        { label: "Base", image: "/images/brainstormov.png" }
       ]
     }
   },
@@ -721,24 +747,29 @@ const aliens = [
     name: "Spidermonkey",
     species: "Arachnachimp",
     planet: "Aranhascimmia",
-    image: "images/spidermonkeypfp.png",
+    image: "/images/spidermonkeypfp.png",
     series: "alienforce",
     powers: ["Enhanced agility", "Web attacks", "Wall crawling"],
     weaknesses: ["Fire", "Heavy impacts"],
     looksBySeries: {
       alienforce: [
-        { label: "Base", image: "images/spidermonkeyaf.png" },
+        { label: "Base", image: "/images/spidermonkeyaf.png" },
         {
-          label: "Ultimate", image: "images/spidermonkeyultimate.png",
+          label: "Ultimate", image: "/images/spidermonkeyultimate.png",
           powers: ["Gorilla-like strength", "Web projectiles", "Spider legs"],
           weaknesses: ["Sonic vibrations", "Sedative quills"]
         },
       ],
       omniverse: [
-        { label: "Base", image: "images/spidermonkeyov.png" }
+        { label: "Base", image: "/images/spidermonkeyov.png" },
+        {
+          label: "Ultimate", image: "/images/spidermonkeyultimateov.png",
+          powers: ["Gorilla-like strength", "Web projectiles", "Extra arms"],
+          weaknesses: ["Sonic vibrations", "Sedative quills"]
+        },
       ],
       reboot: [
-        { label: "Base", image: "images/spidermonkeyreboot.png" }
+        { label: "Base", image: "/images/spidermonkeyreboot.png" }
       ]
     }
   },
@@ -746,19 +777,19 @@ const aliens = [
     name: "Goop",
     species: "Polymorph",
     planet: "Viscosia",
-    image: "images/gooppfp.png",
+    image: "/images/gooppfp.png",
     series: "alienforce",
     powers: ["Acid body", "Shapeshifting", "Regeneration"],
     weaknesses: ["Gravity projector damage", "Freezing attacks"],
     looksBySeries: {
       alienforce: [
-        { label: "Base", image: "images/goopaf.png" }
+        { label: "Base", image: "/images/goopaf.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/goopov.png" }
+        { label: "Base", image: "/images/goopov.png" }
       ],
       reboot: [
-        { label: "Base", image: "images/goopreboot.png" }
+        { label: "Base", image: "/images/goopreboot.png" }
       ]
     }
   },
@@ -766,16 +797,16 @@ const aliens = [
     name: "Alien X",
     species: "Celestialsapien",
     planet: "Forge of Creation",
-    image: "images/alienxpfp.png",
+    image: "/images/alienxpfp.png",
     series: "alienforce",
     powers: ["Reality warping", "Time manipulation", "Cosmic power"],
     weaknesses: ["Internal personalities", "Decision paralysis"],
     looksBySeries: {
       alienforce: [
-        { label: "Base", image: "images/alienxaf.png" }
+        { label: "Base", image: "/images/alienxaf.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/alienxov.png" }
+        { label: "Base", image: "/images/alienxov.png" }
       ]
     }
   },
@@ -783,17 +814,17 @@ const aliens = [
     name: "Nanomech",
     species: "Human/Microchip",
     planet: "Earth",
-    image: "images/nanomechpfp.png",
+    image: "/images/nanomechpfp.png",
     series: "alienforce",
     alias: "benchip",
     powers: ["Microscopic size", "Flight", "Electric blasts"],
     weaknesses: ["Low physical strength", "Strong impacts"],
     looksBySeries: {
       alienforce: [
-        { label: "Base", image: "images/nanomechaf.png" }
+        { label: "Base", image: "/images/nanomechaf.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/nanomechov.png" }
+        { label: "Base", image: "/images/nanomechov.png" }
       ]
     }
   },
@@ -801,16 +832,16 @@ const aliens = [
     name: "Lodestar",
     species: "Biotsavartian",
     planet: "Maxwell",
-    image: "images/lodestarpfp.png",
+    image: "/images/lodestarpfp.png",
     series: "alienforce",
     powers: ["Magnetism manipulation", "Metal control", "Levitation"],
     weaknesses: ["Non-metal opponents", "Energy disruption"],
     looksBySeries: {
       alienforce: [
-        { label: "Base", image: "images/lodestaraf.png" }
+        { label: "Base", image: "/images/lodestaraf.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/lodestarov.png" }
+        { label: "Base", image: "/images/lodestarov.png" }
       ]
     }
   },
@@ -818,21 +849,26 @@ const aliens = [
     name: "Rath",
     species: "Appoplexian",
     planet: "Appoplexia",
-    image: "images/rathpfp.png",
+    image: "/images/rathpfp.png",
     series: "alienforce",
     powers: ["Super strength", "Sharp claws", "Enhanced agility", "Durability"],
     weaknesses: ["Anger and impulsiveness", "Poor strategy"],
     looksBySeries: {
       alienforce: [
-        { label: "Base", image: "images/rathaf.png" }
+        { label: "Base", image: "/images/rathaf.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/rathov.png" }
+        { label: "Base", image: "/images/rathov.png" },
+        {
+          label: "Ultimate", image: "/images/rathultimate.png",
+          powers: ["Enhanced strength", "Enhanced agility", "Two claws extended from his wrists"],
+          weaknesses: ["Anger and impulsiveness"]
+        }
       ],
       reboot: [
-        { label: "Base", image: "images/rathreboot.png" },
+        { label: "Base", image: "/images/rathreboot.png" },
         {
-          label: "Omni-Kix", image: "images/rathomnikix.png",
+          label: "Omni-Kix", image: "/images/rathomnikix.png",
           powers: ["Heavy armor", "Super strength", "Sharp claws", "Enhanced durability"],
           weaknesses: ["Reduced agility", "Anger and impulsiveness"]
         },
@@ -843,16 +879,16 @@ const aliens = [
     name: "Waterhazard",
     species: "Orishan",
     planet: "Kiusana",
-    image: "images/waterhazardpfp.png",
+    image: "/images/waterhazardpfp.png",
     series: "ultimate",
     powers: ["Water blasts", "Pressure resistance", "Enhanced durability", "Hydrokinesis"],
     weaknesses: ["Electricity", "Extreme heat"],
     looksBySeries: {
       ultimate: [
-        { label: "Base", image: "images/waterhazardua.png" }
+        { label: "Base", image: "/images/waterhazardua.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/waterhazardov.png" }
+        { label: "Base", image: "/images/waterhazardov.png" }
       ]
     }
   },
@@ -860,16 +896,16 @@ const aliens = [
     name: "Ampfibian",
     species: "Amperi",
     planet: "Tesslos",
-    image: "images/ampfibianpfp.png",
+    image: "/images/ampfibianpfp.png",
     series: "ultimate",
     powers: ["Electricity manipulation", "Flight", "Intangibility", "Underwater breathing"],
     weaknesses: ["Insulation", "Energy absorption"],
     looksBySeries: {
       ultimate: [
-        { label: "Base", image: "images/ampfibianua.png" }
+        { label: "Base", image: "/images/ampfibianua.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/ampfibianov.png" }
+        { label: "Base", image: "/images/ampfibianov.png" }
       ]
     }
   },
@@ -877,16 +913,16 @@ const aliens = [
     name: "Armodrillo",
     species: "Talpaedan",
     planet: "Poiana Lüncas",
-    image: "images/armodrillopfp.png",
+    image: "/images/armodrillopfp.png",
     series: "ultimate",
     powers: ["Jackhammer arms", "Super strength", "Earth tremors", "Durability"],
     weaknesses: ["Water", "Limited ranged attacks"],
     looksBySeries: {
       ultimate: [
-        { label: "Base", image: "images/armodrilloua.png" }
+        { label: "Base", image: "/images/armodrilloua.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/armodrilloov.png" }
+        { label: "Base", image: "/images/armodrilloov.png" }
       ]
     }
   },
@@ -894,16 +930,16 @@ const aliens = [
     name: "Terraspin",
     species: "Geochelone Aerios",
     planet: "Aldabra",
-    image: "images/terraspinpfp.png",
+    image: "/images/terraspinpfp.png",
     series: "ultimate",
     powers: ["Flight", "Wind manipulation", "Durability", "Magic resistance"],
     weaknesses: ["Limited offensive power", "Heavy impacts"],
     looksBySeries: {
       ultimate: [
-        { label: "Base", image: "images/terraspinua.png" }
+        { label: "Base", image: "/images/terraspinua.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/terraspinov.png" }
+        { label: "Base", image: "/images/terraspinov.png" }
       ]
     }
   },
@@ -911,17 +947,17 @@ const aliens = [
     name: "NRG",
     species: "Prypiatosian-B",
     planet: "Prypiatos",
-    image: "images/nrgpfp.png",
+    image: "/images/nrgpfp.png",
     series: "ultimate",
     powers: ["Radiation blasts", "Super strength", "Extreme heat", "Durability"],
     weaknesses: ["Containment suit restrictions"],
     looksBySeries: {
       ultimate: [
-        { label: "Base", image: "images/nrgua.png" }
+        { label: "Base", image: "/images/nrgua.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/nrgov.png" },
-        { label: "Uncontained", image: "images/nrgov2.png" }
+        { label: "Base", image: "/images/nrgov.png" },
+        { label: "Uncontained", image: "/images/nrgov2.png" }
       ]
     }
   },
@@ -929,13 +965,13 @@ const aliens = [
     name: "Fasttrack",
     species: "Citrakayah",
     planet: "Chalybeas",
-    image: "images/fasttrackpfp.png",
+    image: "/images/fasttrackpfp.png",
     series: "ultimate",
     powers: ["Super speed", "Enhanced agility", "Quick reflexes", "Strong jumps"],
     weaknesses: ["Heavy impacts", "Physical traps"],
     looksBySeries: {
       ultimate: [
-        { label: "Base", image: "images/fasttrackua.png" }
+        { label: "Base", image: "/images/fasttrackua.png" }
       ]
     }
   },
@@ -943,13 +979,13 @@ const aliens = [
     name: "Chamalien",
     species: "Merlinisapien",
     planet: "Unknown",
-    image: "images/chamalienpfp.png",
+    image: "/images/chamalienpfp.png",
     series: "ultimate",
     powers: ["Invisibility", "Enhanced agility", "Tail attacks", "Stealth"],
     weaknesses: ["Physical fragility", "Detection by sound or heat"],
     looksBySeries: {
       ultimate: [
-        { label: "Base", image: "images/chamalienua.png" }
+        { label: "Base", image: "/images/chamalienua.png" }
       ]
     }
   },
@@ -957,16 +993,16 @@ const aliens = [
     name: "Shocksquatch",
     species: "Gimlinopithecus",
     planet: "Pattersonea",
-    image: "images/shocksquatchpfp.png",
+    image: "/images/shocksquatchpfp.png",
     series: "ultimate",
     powers: ["Electricity manipulation", "Super strength", "Enhanced agility", "Durability"],
     weaknesses: ["Insulation", "Energy absorption"],
     looksBySeries: {
       ultimate: [
-        { label: "Base", image: "images/shocksquatchua.png" }
+        { label: "Base", image: "/images/shocksquatchua.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/shocksquatchov.png" }
+        { label: "Base", image: "/images/shocksquatchov.png" }
       ]
     }
   },
@@ -974,16 +1010,16 @@ const aliens = [
     name: "Eatle",
     species: "Oryctini",
     planet: "Coleop Terra",
-    image: "images/eatlepfp.png",
+    image: "/images/eatlepfp.png",
     series: "ultimate",
     powers: ["Super strength", "Matter consumption", "Energy horn blasts", "Durability"],
     weaknesses: ["Heavy impacts"],
     looksBySeries: {
       ultimate: [
-        { label: "Base", image: "images/eatleua.png" }
+        { label: "Base", image: "/images/eatleua.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/eatleov.png" }
+        { label: "Base", image: "/images/eatleov.png" }
       ]
     }
   },
@@ -991,19 +1027,19 @@ const aliens = [
     name: "Clockwork",
     species: "Chronosapien",
     planet: "Unknown",
-    image: "images/clockworkpfp.png",
+    image: "/images/clockworkpfp.png",
     series: "ultimate",
     powers: ["Time manipulation", "Chrono beam", "Mechanical durability", "Enhanced perception"],
     weaknesses: ["Physical disruption"],
     looksBySeries: {
       ultimate: [
-        { label: "Base", image: "images/clockworkua.png" }
+        { label: "Base", image: "/images/clockworkua.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/clockworkov.png" }
+        { label: "Base", image: "/images/clockworkov.png" }
       ],
       classic: [
-        { label: "Base", image: "images/clockworkov2.png" }
+        { label: "Base", image: "/images/clockworkov2.png" }
       ]
     }
   },
@@ -1011,16 +1047,16 @@ const aliens = [
     name: "Juryrigg",
     species: "Planchaküle",
     planet: "Aul-Turrhen",
-    image: "images/juryriggpfp.png",
+    image: "/images/juryriggpfp.png",
     series: "ultimate",
     powers: ["Technological dismantling", "Rapid inventing", "Enhanced agility", "Sharp teeth and claws"],
     weaknesses: ["Impulsiveness", "Low physical durability"],
     looksBySeries: {
       ultimate: [
-        { label: "Base", image: "images/juryriggua.png" }
+        { label: "Base", image: "/images/juryriggua.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/juryriggov.png" }
+        { label: "Base", image: "/images/juryriggov.png" }
       ]
     }
   },
@@ -1028,16 +1064,16 @@ const aliens = [
     name: "Feedback",
     species: "Conductoid",
     planet: "Teslavorr nebula",
-    image: "images/feedbackpfp.png",
+    image: "/images/feedbackpfp.png",
     series: "omniverse",
     powers: ["Energy absorption", "Energy redirection", "Electrical attacks", "Enhanced agility"],
     weaknesses: ["Physical restraint"],
     looksBySeries: {
       classic: [
-        { label: "Base", image: "images/feedbackov.png" }
+        { label: "Base", image: "/images/feedbackov.png" }
       ],
       omniverse: [
-        { label: "Base", image: "images/feedbackov2.png" }
+        { label: "Base", image: "/images/feedbackov2.png" }
       ]
     }
   },
@@ -1045,13 +1081,13 @@ const aliens = [
     name: "Bloxx",
     species: "Segmentasapien",
     planet: "Polyominus",
-    image: "images/bloxxpfp.png",
+    image: "/images/bloxxpfp.png",
     series: "omniverse",
     powers: ["Block construction", "Shape shifting", "Enhanced strength", "Durability"],
     weaknesses: ["Heavy impacts", "Loss of structure"],
     looksBySeries: {
       omniverse: [
-        { label: "Base", image: "images/bloxxov.png" }
+        { label: "Base", image: "/images/bloxxov.png" }
       ]
     }
   },
@@ -1059,13 +1095,18 @@ const aliens = [
     name: "Gravattack",
     species: "Galilean",
     planet: "Keplorr",
-    image: "images/gravattackpfp.png",
+    image: "/images/gravattackpfp.png",
     series: "omniverse",
     powers: ["Gravity manipulation", "Levitation", "Planetary-strength attacks", "Space survival"],
     weaknesses: ["Overexertion", "Disruption of concentration"],
     looksBySeries: {
       omniverse: [
-        { label: "Base", image: "images/gravattackov.png" }
+        { label: "Base", image: "/images/gravattackov.png" },
+        {
+          label: "Ultimate", image: "/images/gravattackultimate.png",
+          powers: ["Gravity manipulation", "Levitation", "Orbiting planetoids"],
+          weaknesses: ["Large size", "Lack of legs"]
+        }
       ]
     }
   },
@@ -1073,13 +1114,13 @@ const aliens = [
     name: "Crashhopper",
     species: "Orthopterran",
     planet: "Unknown",
-    image: "images/crashhopperpfp.png",
+    image: "/images/crashhopperpfp.png",
     series: "omniverse",
     powers: ["Powerful jumps", "Enhanced leg strength", "Durability", "Impact attacks"],
     weaknesses: ["Unstable landings", "Confined spaces"],
     looksBySeries: {
       omniverse: [
-        { label: "Base", image: "images/crashhopperov.png" }
+        { label: "Base", image: "/images/crashhopperov.png" }
       ]
     }
   },
@@ -1087,13 +1128,13 @@ const aliens = [
     name: "Ball Weevil",
     species: "Unknown",
     planet: "Unknown",
-    image: "images/ballweevilpfp.png",
+    image: "/images/ballweevilpfp.png",
     series: "omniverse",
     powers: ["Bio-electric slime bombs", "Wall crawling", "Enhanced agility", "Rolling mobility"],
     weaknesses: ["Close-range attacks", "Heavy impacts"],
     looksBySeries: {
       omniverse: [
-        { label: "Base", image: "images/ballweevilov.png" }
+        { label: "Base", image: "/images/ballweevilov.png" }
       ]
     }
   },
@@ -1101,13 +1142,13 @@ const aliens = [
     name: "Walkatrout",
     species: "Ickthyperambuloid",
     planet: "Gilli-Perambulous Promenade",
-    image: "images/walkatroutpfp.png",
+    image: "/images/walkatroutpfp.png",
     series: "omniverse",
     powers: ["Extreme slipperiness", "Escape ability", "Underwater mobility"],
     weaknesses: ["Low physical strength", "No offensive powers"],
     looksBySeries: {
       omniverse: [
-        { label: "Base", image: "images/walkatroutov.png" }
+        { label: "Base", image: "/images/walkatroutov.png" }
       ]
     }
   },
@@ -1115,13 +1156,13 @@ const aliens = [
     name: "Pesky Dust",
     species: "Nemuina",
     planet: "Nemunimos IV",
-    image: "images/peskydustpfp.png",
+    image: "/images/peskydustpfp.png",
     series: "omniverse",
     powers: ["Sleep dust", "Dream manipulation", "Flight", "Small size"],
     weaknesses: ["Low physical strength", "Fragility"],
     looksBySeries: {
       omniverse: [
-        { label: "Base", image: "images/peskydustov.png" }
+        { label: "Base", image: "/images/peskydustov.png" }
       ]
     }
   },
@@ -1129,13 +1170,13 @@ const aliens = [
     name: "Mole-Stache",
     species: "Unknown",
     planet: "Unknown",
-    image: "images/molestachepfp.png",
+    image: "/images/molestachepfp.png",
     series: "omniverse",
     powers: ["Prehensile mustache control", "Close-range combat"],
     weaknesses: ["Limited range", "Heavy impacts"],
     looksBySeries: {
       omniverse: [
-        { label: "Base", image: "images/molestacheov.png" }
+        { label: "Base", image: "/images/molestacheov.png" }
       ]
     }
   },
@@ -1143,13 +1184,13 @@ const aliens = [
     name: "The Worst",
     species: "Atrocian",
     planet: "Atrocius 0",
-    image: "images/theworstpfp.png",
+    image: "/images/theworstpfp.png",
     series: "omniverse",
     powers: ["Extreme durability", "Damage absorption", "Survivability"],
     weaknesses: ["Very slow movement", "Feels pain despite it not affecting him"],
     looksBySeries: {
       omniverse: [
-        { label: "Base", image: "images/theworstov.png" }
+        { label: "Base", image: "/images/theworstov.png" }
       ]
     }
   },
@@ -1157,13 +1198,13 @@ const aliens = [
     name: "Kickin' Hawk",
     species: "Unknown",
     planet: "Unknown",
-    image: "images/kickinhawkpfp.png",
+    image: "/images/kickinhawkpfp.png",
     series: "omniverse",
     powers: ["Powerful kicks", "Enhanced agility", "Sharp claws", "Combat skill"],
     weaknesses: ["Limited ranged attacks", "Heavy impacts"],
     looksBySeries: {
       omniverse: [
-        { label: "Base", image: "images/kickinhawkov.png" }
+        { label: "Base", image: "/images/kickinhawkov.png" }
       ]
     }
   },
@@ -1171,13 +1212,13 @@ const aliens = [
     name: "Toepick",
     species: "Unknown",
     planet: "Unknown",
-    image: "images/toepickpfp.png",
+    image: "/images/toepickpfp.png",
     series: "omniverse",
     powers: ["Fear inducement", "Durability", "Intimidation"],
     weaknesses: ["Slow movement", "Limited offensive power"],
     looksBySeries: {
       omniverse: [
-        { label: "Base", image: "images/toepickov.png" }
+        { label: "Base", image: "/images/toepickov.png" }
       ]
     }
   },
@@ -1185,13 +1226,13 @@ const aliens = [
     name: "Astrodactyl",
     species: "Unknown",
     planet: "Unknown",
-    image: "images/astrodactylpfp.png",
+    image: "/images/astrodactylpfp.png",
     series: "omniverse",
     powers: ["Flight", "Energy whips", "Jet propulsion", "Enhanced agility"],
     weaknesses: ["Confined spaces", "Heavy impacts"],
     looksBySeries: {
       omniverse: [
-        { label: "Base", image: "images/astrodactylov.png" }
+        { label: "Base", image: "/images/astrodactylov.png" }
       ]
     }
   },
@@ -1199,13 +1240,13 @@ const aliens = [
     name: "Bullfrag",
     species: "Incursean",
     planet: "Incursia",
-    image: "images/bullfragpfp.png",
+    image: "/images/bullfragpfp.png",
     series: "omniverse",
     powers: ["Enhanced agility", "Powerful tongue", "Strong legs", "Combat skill"],
     weaknesses: ["Heavy impacts", "Limited ranged attacks"],
     looksBySeries: {
       omniverse: [
-        { label: "Base", image: "images/bullfragov.png" }
+        { label: "Base", image: "/images/bullfragov.png" }
       ]
     }
   },
@@ -1213,13 +1254,13 @@ const aliens = [
     name: "Atomix",
     species: "Unknown",
     planet: "Unknown",
-    image: "images/atomixpfp.png",
+    image: "/images/atomixpfp.png",
     series: "omniverse",
     powers: ["Nuclear energy blasts", "Flight", "Super strength", "Extreme durability", "Radiation generation"],
     weaknesses: ["Overload from excessive output"],
     looksBySeries: {
       omniverse: [
-        { label: "Base", image: "images/atomixov.png" }
+        { label: "Base", image: "/images/atomixov.png" }
       ]
     }
   },
@@ -1227,13 +1268,13 @@ const aliens = [
     name: "Gutrot",
     species: "Unknown",
     planet: "Unknown",
-    image: "images/gutrotpfp.png",
+    image: "/images/gutrotpfp.png",
     series: "omniverse",
     powers: ["Gas generation", "Chemical manipulation", "Toxin resistance"],
     weaknesses: ["Wind dispersion"],
     looksBySeries: {
       omniverse: [
-        { label: "Base", image: "images/gutrotov.png" }
+        { label: "Base", image: "/images/gutrotov.png" }
       ]
     }
   },
@@ -1241,13 +1282,13 @@ const aliens = [
     name: "Whampire",
     species: "Vladat",
     planet: "Anur Transyl",
-    image: "images/whampirepfp.png",
+    image: "/images/whampirepfp.png",
     series: "omniverse",
     powers: ["Hypnosis", "Flight", "Enhanced strength", "Darkness manipulation", "Life energy absorption"],
     weaknesses: ["Bright light", "Sun-based attacks"],
     looksBySeries: {
       omniverse: [
-        { label: "Base", image: "images/whampireov.png" }
+        { label: "Base", image: "/images/whampireov.png" }
       ]
     }
   },
@@ -1255,15 +1296,15 @@ const aliens = [
     name: "Overflow",
     species: "Cascan",
     planet: "Cascareau",
-    image: "images/overflowpfp.png",
+    image: "/images/overflowpfp.png",
     series: "reboot",
     powers: ["Water manipulation", "High-pressure blasts", "Durability", "Underwater mobility"],
     weaknesses: ["Electricity", "Extreme heat"],
     looksBySeries: {
       reboot: [
-        { label: "Base", image: "images/overflowreboot.png" },
+        { label: "Base", image: "/images/overflowreboot.png" },
         {
-          label: "Omni-Enhanced", image: "images/overflowomnienhanced.png",
+          label: "Omni-Enhanced", image: "/images/overflowomnienhanced.png",
           powers: ["Enhanced water manipulation", "High-pressure blasts", "Armored durability", "Underwater mobility"],
           weaknesses: ["Electricity", "Extreme heat"]
         }
@@ -1274,13 +1315,13 @@ const aliens = [
     name: "Gax",
     species: "Chimera Sui Generis",
     planet: "Vilgaxia",
-    image: "images/gaxpfp.png",
+    image: "/images/gaxpfp.png",
     series: "reboot",
     powers: ["Shape-shifting tentacles", "Regeneration", "Enhanced strength", "Laser eyes"],
     weaknesses: ["Fire", "Extreme cold"],
     looksBySeries: {
       reboot: [
-        { label: "Base", image: "images/gaxreboot.png" }
+        { label: "Base", image: "/images/gaxreboot.png" }
       ]
     }
   },
@@ -1288,20 +1329,20 @@ const aliens = [
     name: "Shock Rock",
     species: "Fulmini",
     planet: "Fulmas",
-    image: "images/shockrockpfp.png",
+    image: "/images/shockrockpfp.png",
     series: "reboot",
     powers: ["Energy constructs", "Electricity manipulation", "Energy blasts", "Durability"],
     weaknesses: ["Energy absorption", "Overload from excessive power"],
     looksBySeries: {
       reboot: [
-        { label: "Base", image: "images/shockrockreboot.png" },
+        { label: "Base", image: "/images/shockrockreboot.png" },
         {
-          label: "Omni-Kix", image: "images/shockrockomnikix.png",
+          label: "Omni-Kix", image: "/images/shockrockomnikix.png",
           powers: ["Armored energy constructs", "Electricity manipulation", "Powerful energy blasts", "Enhanced durability"],
           weaknesses: ["Energy absorption", "Overload from excessive power"]
         },
         {
-          label: "Omni-Naut", image: "images/shockrockomninaut.png",
+          label: "Omni-Naut", image: "/images/shockrockomninaut.png",
           powers: ["Space survivability", "Electricity manipulation", "Pressure resistance", "Enhanced durability"],
           weaknesses: ["Energy absorption", "Reduced speed on land"]
         }
@@ -1312,15 +1353,15 @@ const aliens = [
     name: "Slapback",
     species: "Ekoplektoid",
     planet: "Ekoplekton",
-    image: "images/slapbackpfp.png",
+    image: "/images/slapbackpfp.png",
     series: "reboot",
     powers: ["Duplication", "Density increase", "Enhanced strength", "Impact attacks"],
     weaknesses: ["Flexibility limit"],
     looksBySeries: {
       reboot: [
-        { label: "Base", image: "images/slapbackreboot.png" },
+        { label: "Base", image: "/images/slapbackreboot.png" },
         {
-          label: "Omni-Kix", image: "images/slapbackomnikix.png",
+          label: "Omni-Kix", image: "/images/slapbackomnikix.png",
           powers: ["Armored duplication", "Density increase", "Enhanced strength", "Impact attacks"],
           weaknesses: ["Reduced agility"]
         }
@@ -1331,13 +1372,13 @@ const aliens = [
     name: "Surge",
     species: "Xerge",
     planet: "Unknown",
-    image: "images/surgepfp.png",
+    image: "/images/surgepfp.png",
     series: "reboot",
     powers: ["Xerge fusion", "Flight", "Energy projection"],
     weaknesses: ["Weak when alone", "Limited physical strength"],
     looksBySeries: {
       reboot: [
-        { label: "Base", image: "images/surgereboot.png" }
+        { label: "Base", image: "/images/surgereboot.png" }
       ]
     }
   },
@@ -1657,7 +1698,19 @@ function actualizarLookModal() {
   modalImage.src = variante.image;
   modalImage.alt = alienSeleccionado.name;
   modalLookLabel.textContent = "";
+  const speciesBase = variante.species || alienSeleccionado.species || "Unknown";
+  const esUltimate = (variante.label || "").toLowerCase() === "ultimate";
 
+  if (esUltimate && !speciesBase.toLowerCase().startsWith("evolved ")) {
+	modalSpecies.textContent = "Evolved " + speciesBase;
+  } else {
+	modalSpecies.textContent = speciesBase;
+  }
+  if ((serieActual === "alienforce" || serieActual === "omniverse") && variante.label.toLowerCase() === "ultimate") {
+    modalSeriesLabel.textContent = "Ultimatrix";
+  } else {
+    modalSeriesLabel.textContent = nombreSerieBonito(serieActual);
+  }
   const powers = variante.powers || alienSeleccionado.powers || ["Unknown"];
   const weaknesses = variante.weaknesses || alienSeleccionado.weaknesses || ["Unknown"];
 
@@ -2010,17 +2063,28 @@ function mostrarToast(mensaje) {
     renderAlienList(filter);
     updateProgress();
   }
+  let scrollGuardado = 0;
+
+  function bloquearScrollFondo() {
+	scrollGuardado = window.scrollY;
+	document.body.classList.add("modal-open");
+	document.body.style.top = `-${scrollGuardado}px`;
+}
+
+  function desbloquearScrollFondo() {
+	document.body.classList.remove("modal-open");
+	document.body.style.top = "";
+	window.scrollTo(0, scrollGuardado);
+}
 
   function openPlaylistModal() {
     playlistSelected = [];
     setPlaylistMode("create");
-
+	bloquearScrollFondo();
     playlistModalBody.style.display = "flex";
     playlistModalFooter.style.display = "flex";
     playlistResult.style.display = "none";
     document.getElementById('close-playlist-modal').style.display = 'block';
-
-    aliens.sort(() => Math.random() - 0.5);
     refreshAll();
     playlistSearch.value = "";
     playlistModal.classList.add("show");
@@ -2031,7 +2095,7 @@ function mostrarToast(mensaje) {
 
     playlistSelected = [];
     playlistSearch.value = "";
-
+	bloquearScrollFondo();
     playlistModalBody.style.display = "flex";
     playlistModalFooter.style.display = "flex";
     playlistResult.style.display = "none";
@@ -2832,7 +2896,7 @@ function verPlaylist(playlist) {
 
   function triggerJumpscare() {
     // Sonido
-    const audio = new Audio('sounds/jumpscare.mp3');
+    const audio = new Audio('/sounds/jumpscare.mp3');
     audio.play().catch(() => { });
 
     // Imagen
@@ -2849,7 +2913,7 @@ function verPlaylist(playlist) {
     `;
 
     const img = document.createElement('img');
-    img.src = 'images/jumpscare.png';
+    img.src = '/images/jumpscare.png';
     img.style.cssText = `
       width: 100%;
       height: 100%;
@@ -2909,7 +2973,7 @@ function verPlaylist(playlist) {
     }, 1210);
 
     // Audio "Alien X"
-    const audioEntrada = new Audio('sounds/alienx.mp3');
+    const audioEntrada = new Audio('/sounds/alienx.mp3');
     audioEntrada.play().catch(() => { });
     document.getElementById('alien-modal').classList.remove('show');
 
@@ -2941,8 +3005,8 @@ function verPlaylist(playlist) {
     `;
 
     // Bellicus a la izquierda, Serena a la derecha
-    const bellicusEl = crearPersonaje('images/bellicus.png', 'left');
-    const serenaEl = crearPersonaje('images/serena.png', 'right');
+    const bellicusEl = crearPersonaje('/images/bellicus.png', 'left');
+    const serenaEl = crearPersonaje('/images/serena.png', 'right');
 
     world.appendChild(bellicusEl);
     world.appendChild(serenaEl);

@@ -1256,18 +1256,19 @@ h1,
   }
 
   .alien-nav-outer {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10001;
+  position: fixed;
+  top: auto;
+  bottom: 20px;
+  transform: none;
+  z-index: 10001;
   }
 
   #prev-alien {
-    left: 8px;
+  left: calc(50% - 58px);
   }
 
   #next-alien {
-    right: 8px;
+  left: calc(50% + 14px);
   }
 
   .modal-look-label {
@@ -1395,4 +1396,14 @@ h1,
   -webkit-user-select: none;
   -webkit-touch-callout: none;
   -webkit-user-drag: none;
+}
+
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+#playlist-modal {
+  overscroll-behavior: contain;
 }
