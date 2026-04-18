@@ -1404,3 +1404,24 @@ body.modal-open {
   position: fixed;
   width: 100%;
 }
+
+.alien-modal-content,
+.alien-modal-content * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.modal-info,
+.modal-info * {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+*:not(input):not(textarea) {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
