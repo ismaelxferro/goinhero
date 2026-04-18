@@ -1388,8 +1388,8 @@ h1,
 
 body.modal-open {
   overflow: hidden;
-  position: fixed;
   width: 100%;
+  touch-action: none;
 }
 
 #playlist-modal {
@@ -1398,11 +1398,6 @@ body.modal-open {
 body.playlist-lock {
   overflow: hidden;
   touch-action: none;
-}
-body.modal-open {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
 }
 
 .alien-modal-content,

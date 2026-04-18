@@ -4,6 +4,7 @@ const alienForceTitle = document.getElementById("alienforce-title");
 const ultimateTitle = document.getElementById("ultimate-title");
 const omniverseTitle = document.getElementById("omniverse-title");
 const rebootTitle = document.getElementById("reboot-title");
+
 const aliens = [
   {
     name: "Heatblast",
@@ -2546,12 +2547,13 @@ function mostrarSidebar() {
 // Abrir/cerrar sidebar
 function abrirSidebar() {
   const isMobile = window.innerWidth <= 768;
+  const mobileSidebarWidth = '72vw';
 
   sidebarAbierto = true;
-  sidebar.style.width = isMobile ? '100vw' : '280px';
+  sidebar.style.width = isMobile ? mobileSidebarWidth : '280px';
   sidebar.style.left = '0';
   sidebarOverlay.style.display = 'block';
-  sidebarOverlay.style.background = isMobile ? 'rgba(0,0,0,0.96)' : 'rgba(0,0,0,0.5)';
+  sidebarOverlay.style.background = isMobile ? 'rgba(0,0,0,0.75)' : 'rgba(0,0,0,0.5)';
   sidebarToggle.style.display = 'none';
 
   playlistFab.classList.add('sidebar-blurred');
@@ -2559,10 +2561,11 @@ function abrirSidebar() {
 
 function cerrarSidebar() {
   const isMobile = window.innerWidth <= 768;
+  const mobileSidebarWidth = '72vw';
 
   sidebarAbierto = false;
-  sidebar.style.width = isMobile ? '100vw' : '280px';
-  sidebar.style.left = isMobile ? '-100vw' : '-300px';
+  sidebar.style.width = isMobile ? mobileSidebarWidth : '280px';
+  sidebar.style.left = isMobile ? '-72vw' : '-300px';
   sidebarOverlay.style.display = 'none';
   sidebarToggle.style.display = isUserLoggedIn ? 'flex' : 'none';
 
@@ -2616,7 +2619,8 @@ btnLogout.addEventListener('click', async function () {
   cerrarSidebar();
   await supabase.auth.signOut();
   mostrarLogin();
-});
+});const mobileSidebarWidth = '82vw';
+
 function mostrarLogin() {
   isUserLoggedIn = false;
   sidebarAbierto = false;
@@ -2918,7 +2922,7 @@ function verPlaylist(playlist) {
 
   function triggerJumpscare() {
     // Sonido
-    const audio = new Audio('./sounds/jumpscare.mp3');
+    const audio = new Audio('sounds/jumpscare.mp3');
     audio.play().catch(() => { });
 
     // Imagen
@@ -2995,9 +2999,10 @@ function verPlaylist(playlist) {
     }, 1210);
 
     // Audio "Alien X"
-    const audioEntrada = new Audio('./sounds/alienx.mp3');
+	cerrarModalAlien();
+    const audioEntrada = new Audio('sounds/alienx.mp3');
     audioEntrada.play().catch(() => { });
-    cerrarModalAlien();
+    
     const vr = document.createElement('div');
     vr.id = 'vr-container';
     vr.style.cssText = `
