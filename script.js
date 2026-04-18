@@ -1383,7 +1383,7 @@ const aliens = [
     }
   },
 ];
-
+const aliensFijos = [...aliens];
 const prevSeries = document.getElementById("prev-series");
 const nextSeries = document.getElementById("next-series");
 const modalSeriesLabel = document.getElementById("modal-series-label");
@@ -1408,12 +1408,14 @@ const closeCopyrightModal = document.getElementById('closeCopyrightModal');
 if (copyrightBtn) {
   copyrightBtn.addEventListener('click', function () {
     copyrightModal.style.display = 'flex';
+	bloquearScrollFondo();
   });
 }
 
 if (closeCopyrightModal) {
   closeCopyrightModal.addEventListener('click', function () {
     copyrightModal.style.display = 'none';
+	desbloquearScrollFondo();
   });
 }
 function ajustarTitulos() {
@@ -1491,7 +1493,7 @@ function mostrarAliens(lista) {
   });
 }
 
-mostrarAliens(aliens);
+mostrarAliens(aliensFijos);
 const clearSearch = document.getElementById("clear-search");
 const alienModal = document.getElementById("alien-modal");
 const closeModal = document.getElementById("close-modal");
@@ -1620,7 +1622,7 @@ actualizarBotonBorrar();
 buscador.addEventListener("input", function () {
   const texto = buscador.value.toLowerCase();
 
-  const filtrados = aliens.filter(function (alien) {
+  const filtrados = aliensFijos.filter(function (alien) {
     return (
       alien.name.toLowerCase().startsWith(texto) ||
       (alien.alias && alien.alias.toLowerCase().startsWith(texto)) ||
@@ -1636,7 +1638,7 @@ buscador.addEventListener("input", function () {
 
 clearSearch.addEventListener("click", function () {
   buscador.value = "";
-  mostrarAliens(aliens);
+  mostrarAliens(aliensFijos);
   buscador.focus();
   actualizarBotonBorrar();
 });
@@ -1891,10 +1893,24 @@ function mostrarToast(mensaje) {
     toast.classList.remove('show');
   }, 2500);
 }
+let scrollGuardado = 0;
+
+  function bloquearScrollFondo() {
+	scrollGuardado = window.scrollY;
+	document.body.classList.add("modal-open");
+	document.body.style.top = `-${scrollGuardado}px`;
+}
+
+  function desbloquearScrollFondo() {
+	document.body.classList.remove("modal-open");
+	document.body.style.top = "";
+	window.scrollTo(0, scrollGuardado);
+}
 // ===== PLAYLIST FEATURE =====
 (function () {
   let playlistSelected = [];
   let editingPlaylist = null;
+  let playlistAliens = [...aliens];
   const fab = document.getElementById("playlist-fab");
   const fabCount = document.getElementById("fab-count");
   const playlistModal = document.getElementById("playlist-modal");
@@ -2008,7 +2024,7 @@ function mostrarToast(mensaje) {
   function renderAlienList(filter) {
     playlistAlienList.innerHTML = "";
     const filterLower = (filter || "").toLowerCase();
-    const filtered = aliens.filter(a =>
+    const filtered = playlistAliens.filter(a =>
       !filter ||
       a.name.toLowerCase().startsWith(filterLower) ||
       (a.alias && a.alias.toLowerCase().startsWith(filterLower)) ||
@@ -2063,47 +2079,40 @@ function mostrarToast(mensaje) {
     renderAlienList(filter);
     updateProgress();
   }
-  let scrollGuardado = 0;
 
-  function bloquearScrollFondo() {
-	scrollGuardado = window.scrollY;
-	document.body.classList.add("modal-open");
-	document.body.style.top = `-${scrollGuardado}px`;
-}
-
-  function desbloquearScrollFondo() {
-	document.body.classList.remove("modal-open");
-	document.body.style.top = "";
-	window.scrollTo(0, scrollGuardado);
-}
 
   function openPlaylistModal() {
-    playlistSelected = [];
-    setPlaylistMode("create");
-	bloquearScrollFondo();
-    playlistModalBody.style.display = "flex";
-    playlistModalFooter.style.display = "flex";
-    playlistResult.style.display = "none";
-    document.getElementById('close-playlist-modal').style.display = 'block';
-    refreshAll();
-    playlistSearch.value = "";
-    playlistModal.classList.add("show");
-  }
+  playlistSelected = [];
+  setPlaylistMode("create");
+
+  playlistModalBody.style.display = "flex";
+  playlistModalFooter.style.display = "flex";
+  playlistResult.style.display = "none";
+  document.getElementById('close-playlist-modal').style.display = 'block';
+  playlistAliens = [...aliensFijos].sort(() => Math.random() - 0.5);
+  refreshAll();
+  playlistSearch.value = "";
+  playlistModal.classList.add("show");
+  bloquearScrollFondo();
+  bloquearScrollFondo;
+
+}
 
   function closePlaylist() {
-    playlistModal.classList.remove("show");
+  playlistModal.classList.remove("show");
 
-    playlistSelected = [];
-    playlistSearch.value = "";
-	bloquearScrollFondo();
-    playlistModalBody.style.display = "flex";
-    playlistModalFooter.style.display = "flex";
-    playlistResult.style.display = "none";
-    document.getElementById('close-playlist-modal').style.display = 'block';
+  playlistSelected = [];
+  playlistSearch.value = "";
 
-    setPlaylistMode("create");
-    refreshAll();
-  }
+  playlistModalBody.style.display = "flex";
+  playlistModalFooter.style.display = "flex";
+  playlistResult.style.display = "none";
+  document.getElementById('close-playlist-modal').style.display = 'block';
+
+  setPlaylistMode("create");
+  refreshAll();
+  desbloquearScrollFondo();
+}
 
 
   function showResult() {
@@ -2127,7 +2136,7 @@ function mostrarToast(mensaje) {
             aliens: playlistSelected
           }).then(({ error }) => {
             if (error) { openMessageModal('Error: ' + error.message); return; }
-            mostrarToast('Playlist saved!'); // ← agregá esta línea
+            mostrarToast('Playlist saved!');
             fabCount.textContent = "0/10";
             playlistProgressText.textContent = "0 / 10 selected";
             playlistModalBody.style.display = "none";
@@ -2204,7 +2213,8 @@ function mostrarToast(mensaje) {
     editingPlaylist = e.detail.playlist;
     playlistSelected = [...e.detail.aliens];
     playlistSearch.value = "";
-    refreshAll();
+	playlistAliens = [...aliensFijos].sort(() => Math.random() - 0.5);
+	refreshAll();
     setPlaylistMode("edit");
   });
 
@@ -2486,7 +2496,9 @@ resetPasswordSave.addEventListener('click', async function () {
   authScreen.style.display = 'flex';
   openMessageModal('Password updated successfully. Now log in with your new password.');
 });
+
 // ===== SIDEBAR Y MY PLAYLISTS =====
+const myPlaylistsBody = document.getElementById('my-playlists-body');
 const sidebarToggle = document.getElementById('sidebar-toggle');
 const sidebarClose = document.getElementById('sidebar-close');
 const sidebarOverlay = document.getElementById('sidebar-overlay');
@@ -2617,6 +2629,7 @@ function mostrarLogin() {
   myPlaylistsModal.style.display = 'none';
 
   updatePlaylistFabVisibility();
+  desbloquearScrollFondo();
 }
 document.getElementById('delete-account-btn').addEventListener('click', function () {
   abrirConfirmModal(
@@ -2686,22 +2699,28 @@ btnMyPlaylists.addEventListener('click', function () {
 
 closeMyPlaylists.addEventListener('click', function () {
   myPlaylistsModal.style.display = 'none';
+  desbloquearScrollFondo();
   updatePlaylistFabVisibility();
+  document.body.classList.remove('modal-open');
 });
 
 myPlaylistsModal.addEventListener('click', function (e) {
-  if (e.target === myPlaylistsModal) myPlaylistsModal.style.display = 'none';
+  if (e.target === myPlaylistsModal) {
+    myPlaylistsModal.style.display = 'none';
+    desbloquearScrollFondo();
+  }
   updatePlaylistFabVisibility();
-
 });
 
 async function abrirMyPlaylists() {
-  myPlaylistsTitle.textContent = 'My Playlists';
-  myPlaylistsSubtitle.textContent = 'Your saved playlists';
-  playlistsList.style.display = 'block';
-  playlistDetail.style.display = 'none';
-  myPlaylistsModal.style.display = 'flex';
-  updatePlaylistFabVisibility();
+  myPlaylistsModal.style.display = "flex";
+
+  myPlaylistsBody.style.display = "block";
+  playlistDetail.style.display = "none";
+  playlistsList.style.display = "block";
+  playlistsList.innerHTML = "<p style='color:#aaa;'>Loading playlists...</p>";
+
+  bloquearScrollFondo();
   await cargarPlaylists();
 }
 
@@ -2796,6 +2815,7 @@ function verPlaylist(playlist) {
     myPlaylistsSubtitle.textContent = 'Your saved playlists';
     cargarPlaylists();
   });
+ 
 
   // Renombrar
   document.getElementById('btn-renombrar').addEventListener('click', function () {

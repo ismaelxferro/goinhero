@@ -941,18 +941,6 @@ h1,
   }
 }
 
-@keyframes vrFloat {
-
-  0%,
-  100% {
-    transform: translate(-50%, -50%) translate3d(var(--vx, -400px), 0px, -600px);
-  }
-
-  50% {
-    transform: translate(-50%, -50%) translate3d(var(--vx, -400px), -30px, -600px);
-  }
-}
-
 #toast {
   position: fixed;
   bottom: 90px;
@@ -1406,4 +1394,13 @@ body.modal-open {
 
 #playlist-modal {
   overscroll-behavior: contain;
+}
+body.playlist-lock {
+  overflow: hidden;
+  touch-action: none;
+}
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
 }
