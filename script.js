@@ -2918,7 +2918,7 @@ function verPlaylist(playlist) {
 
   function triggerJumpscare() {
     // Sonido
-    const audio = new Audio('/sounds/jumpscare.mp3');
+    const audio = new Audio('./sounds/jumpscare.mp3');
     audio.play().catch(() => { });
 
     // Imagen
@@ -2995,10 +2995,9 @@ function verPlaylist(playlist) {
     }, 1210);
 
     // Audio "Alien X"
-    const audioEntrada = new Audio('/sounds/alienx.mp3');
+    const audioEntrada = new Audio('./sounds/alienx.mp3');
     audioEntrada.play().catch(() => { });
-    document.getElementById('alien-modal').classList.remove('show');
-
+    cerrarModalAlien();
     const vr = document.createElement('div');
     vr.id = 'vr-container';
     vr.style.cssText = `
