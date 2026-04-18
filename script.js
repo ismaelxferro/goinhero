@@ -2536,7 +2536,6 @@ function updatePlaylistFabVisibility() {
       : 'none';
 }
 let sidebarAbierto = false;
-let sidebarHistoryOpen = false;
 // Mostrar el botón hamburguesa cuando el usuario está logueado
 function mostrarSidebar() {
   if (!sidebarAbierto) {
@@ -2556,19 +2555,11 @@ function abrirSidebar() {
   sidebarToggle.style.display = 'none';
 
   playlistFab.classList.add('sidebar-blurred');
-  
-  if (isMobile && !sidebarHistoryOpen) {
-    history.pushState({ sidebarOpen: true }, '');
-    sidebarHistoryOpen = true;
-  }
 }
 
 function cerrarSidebar() {
   const isMobile = window.innerWidth <= 768;
-  if (isMobile && sidebarHistoryOpen && !fromPopState) {
-    history.back();
-    return;
-  }
+
   sidebarAbierto = false;
   sidebar.style.width = isMobile ? '100vw' : '280px';
   sidebar.style.left = isMobile ? '-100vw' : '-300px';
@@ -2581,11 +2572,6 @@ function cerrarSidebar() {
 sidebarToggle.addEventListener('click', abrirSidebar);
 sidebarClose.addEventListener('click', cerrarSidebar);
 sidebarOverlay.addEventListener('click', cerrarSidebar);
-window.addEventListener('popstate', function () {
-  if (sidebarAbierto) {
-    cerrarSidebar(true);
-  }
-});
 import {
   FunctionsHttpError,
   FunctionsRelayError,
