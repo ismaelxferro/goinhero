@@ -1396,6 +1396,7 @@ let serieActual = "";
 let indiceSerieActual = 0;
 let aliensVisibles = [];
 let indiceAlienActual = 0;
+let listaModalActual = [];
 const classicContainer = document.getElementById("classic-container");
 const alienForceContainer = document.getElementById("alienforce-container");
 const ultimateContainer = document.getElementById("ultimate-container");
@@ -1432,7 +1433,7 @@ function ajustarTitulos() {
     }
   });
 }
-function mostrarAliens(lista) {
+function mostrarAliens(lista, ignorarSeries = false) {
 
   classicContainer.innerHTML = "";
   alienForceContainer.innerHTML = "";
@@ -1440,38 +1441,35 @@ function mostrarAliens(lista) {
   omniverseContainer.innerHTML = "";
   rebootContainer.innerHTML = "";
   aliensVisibles = [...lista];
+
   for (let i = 0; i < lista.length; i++) {
     let container = null;
     let cardClass = "";
 
-    if (lista[i].series === "classic") {
+    if (ignorarSeries) {
+      // Put everything in classicContainer as a flat list
       container = classicContainer;
-      cardClass = "classic-card";
-    } else if (lista[i].series === "alienforce") {
-      container = alienForceContainer;
-      cardClass = "alienforce-card";
-    } else if (lista[i].series === "ultimate") {
-      container = ultimateContainer;
-      cardClass = "ultimate-card";
-    } else if (lista[i].series === "omniverse") {
-      container = omniverseContainer;
-      cardClass = "omniverse-card";
-    } else if (lista[i].series === "reboot") {
-      container = rebootContainer;
-      cardClass = "reboot-card";
+      cardClass = lista[i].series + "-card";
+    } else {
+      if (lista[i].series === "classic") { container = classicContainer; cardClass = "classic-card"; }
+      else if (lista[i].series === "alienforce") { container = alienForceContainer; cardClass = "alienforce-card"; }
+      else if (lista[i].series === "ultimate") { container = ultimateContainer; cardClass = "ultimate-card"; }
+      else if (lista[i].series === "omniverse") { container = omniverseContainer; cardClass = "omniverse-card"; }
+      else if (lista[i].series === "reboot") { container = rebootContainer; cardClass = "reboot-card"; }
     }
 
     if (container !== null) {
       container.innerHTML += `
-<div class="alien-card ${cardClass}" data-name="${lista[i].name}">
+        <div class="alien-card ${cardClass}" data-name="${lista[i].name}">
           <img src="${lista[i].image}" alt="${lista[i].name}" class="alien-image">
           <h2>${lista[i].name}</h2>
           <p><strong>Species:</strong> <span class="alien-value">${lista[i].species}</span></p>
-		  <p><strong>Planet:</strong> <span class="alien-value">${lista[i].planet}</span></p>
+          <p><strong>Planet:</strong> <span class="alien-value">${lista[i].planet}</span></p>
         </div>
       `;
     }
   }
+
   const titulos = document.querySelectorAll(".alien-card h2");
 
 
@@ -1621,28 +1619,55 @@ function actualizarBotonBorrar() {
 actualizarBotonBorrar();
 
 buscador.addEventListener("input", function () {
-  const texto = buscador.value.toLowerCase();
-
-  const filtrados = aliensFijos.filter(function (alien) {
-    return (
-      alien.name.toLowerCase().startsWith(texto) ||
-      (alien.alias && alien.alias.toLowerCase().startsWith(texto)) ||
-      (alien.aliases && alien.aliases.some(function (alias) {
-        return alias.toLowerCase().startsWith(texto);
-      }))
-    );
-  });
-
-  mostrarAliens(filtrados);
+ 
+  aplicarOrden();
   actualizarBotonBorrar();
 });
 
 clearSearch.addEventListener("click", function () {
   buscador.value = "";
-  mostrarAliens(aliensFijos);
+  aplicarOrden();
   buscador.focus();
   actualizarBotonBorrar();
 });
+
+const sortSelect = document.getElementById("sort-select");
+let sortMode = "omnitrix";
+
+sortSelect.addEventListener("change", function () {
+  sortMode = sortSelect.value;
+  aplicarOrden();
+});
+
+sortSelect.addEventListener("change", function () {
+  sortMode = sortSelect.value;
+  aplicarOrden();
+});
+
+function aplicarOrden() {
+  const texto = buscador.value.toLowerCase();
+  let lista = aliensFijos.filter(function (alien) {
+    return (
+      !texto ||
+      alien.name.toLowerCase().startsWith(texto) ||
+      (alien.alias && alien.alias.toLowerCase().startsWith(texto)) ||
+      (alien.aliases && alien.aliases.some(a => a.toLowerCase().startsWith(texto)))
+    );
+  });
+
+  if (sortMode === "az") {
+    lista = [...lista].sort((a, b) => a.name.localeCompare(b.name));
+  } else if (sortMode === "za") {
+    lista = [...lista].sort((a, b) => b.name.localeCompare(a.name));
+  }
+  mostrarAliens(lista);
+  const isSorted = sortMode !== "omnitrix";
+  mostrarAliens(lista, isSorted);
+
+  [classicTitle, alienForceTitle, ultimateTitle, omniverseTitle, rebootTitle].forEach(t => {
+    if (t) t.style.display = isSorted ? "none" : "";
+  });
+}
 
 function obtenerSeriesDisponibles(alien) {
   if (alien.looksBySeries) {
@@ -1731,7 +1756,7 @@ function actualizarLookModal() {
   renderizarBotonesVariantes();
 }
 
-function abrirModalAlien(name) {
+function abrirModalAlien(name, lista) {
   alienSeleccionado = aliens.find(function (alien) {
     return alien.name === name;
   });
@@ -1739,11 +1764,25 @@ function abrirModalAlien(name) {
   if (!alienSeleccionado) {
     return;
   }
-  indiceAlienActual = aliensVisibles.findIndex(function (alien) {
+  //Reset content
+  modalName.textContent = "";
+  modalSpecies.textContent = "";
+  modalPlanet.textContent = "";
+  modalImage.src = "";
+  modalPowers.innerHTML = "";
+  modalWeaknesses.innerHTML = "";
+  variantButtons.innerHTML = "";
+  // Si se pasa una lista externa (ej: desde playlist), usarla; si no, usar aliensVisibles
+  listaModalActual = (lista && lista.length) ? lista : aliensVisibles;
+
+  indiceAlienActual = listaModalActual.findIndex(function (alien) {
     return alien.name === name;
   });
-  indiceSerieActual = 0;
+  if (indiceAlienActual === -1) {
+    indiceAlienActual = 0;
+  }
 
+  indiceSerieActual = 0;
   varianteActual = 0;
   modalName.textContent = alienSeleccionado.name;
   modalSpecies.textContent = alienSeleccionado.species;
@@ -1805,21 +1844,21 @@ nextSeries.addEventListener("click", function () {
   cambiarSerie(1);
 });
 function cambiarAlien(direccion) {
-  if (aliensVisibles.length === 0) {
+  if (!listaModalActual || listaModalActual.length === 0) {
     return;
   }
 
   indiceAlienActual += direccion;
 
   if (indiceAlienActual < 0) {
-    indiceAlienActual = aliensVisibles.length - 1;
+    indiceAlienActual = listaModalActual.length - 1;
   }
 
-  if (indiceAlienActual >= aliensVisibles.length) {
+  if (indiceAlienActual >= listaModalActual.length) {
     indiceAlienActual = 0;
   }
 
-  abrirModalAlien(aliensVisibles[indiceAlienActual].name);
+  abrirModalAlien(listaModalActual[indiceAlienActual].name, listaModalActual);
 }
 const prevAlien = document.getElementById("prev-alien");
 const nextAlien = document.getElementById("next-alien");
@@ -1913,7 +1952,7 @@ let scrollGuardado = 0;
 (function () {
   let playlistSelected = [];
   let editingPlaylist = null;
-  let playlistAliens = [...aliens];
+  let playlistAliens = [...aliensFijos].sort(() => Math.random() - 0.5);
   const fab = document.getElementById("playlist-fab");
   const fabCount = document.getElementById("fab-count");
   const playlistModal = document.getElementById("playlist-modal");
@@ -2085,26 +2124,26 @@ let scrollGuardado = 0;
 
 
   function openPlaylistModal() {
-  playlistSelected = [];
   setPlaylistMode("create");
+
+  // Solo randomiza si no hay nada seleccionado
+  if (playlistSelected.length === 0) {
+    playlistAliens = [...aliensFijos].sort(() => Math.random() - 0.5);
+  }
 
   playlistModalBody.style.display = "flex";
   playlistModalFooter.style.display = "flex";
   playlistResult.style.display = "none";
   document.getElementById('close-playlist-modal').style.display = 'block';
-  playlistAliens = [...aliensFijos].sort(() => Math.random() - 0.5);
   refreshAll();
   playlistSearch.value = "";
   playlistModal.classList.add("show");
   bloquearScrollFondo();
-  bloquearScrollFondo;
-
 }
 
   function closePlaylist() {
   playlistModal.classList.remove("show");
 
-  playlistSelected = [];
   playlistSearch.value = "";
 
   playlistModalBody.style.display = "flex";
@@ -2140,21 +2179,25 @@ let scrollGuardado = 0;
           }).then(({ error }) => {
             if (error) { openMessageModal('Error: ' + error.message); return; }
             mostrarToast('Playlist saved!');
-            fabCount.textContent = "0/10";
-            playlistProgressText.textContent = "0 / 10 selected";
-            playlistModalBody.style.display = "none";
-            playlistModalFooter.style.display = "none";
-            playlistResult.style.display = "flex";
-            document.getElementById('close-playlist-modal').style.display = 'none';
-            playlistResultGrid.innerHTML = "";
-            playlistSelected.forEach(name => {
-              const alien = aliens.find(a => a.name === name);
-              if (!alien) return;
-              const card = document.createElement("div");
-              card.className = "result-alien-card";
-              card.innerHTML = `<img src="${alien.image}" alt="${alien.name}" /><span>${alien.name}</span>`;
-              playlistResultGrid.appendChild(card);
-            });
+playlistModalBody.style.display = "none";
+playlistModalFooter.style.display = "none";
+playlistResult.style.display = "flex";
+document.getElementById('close-playlist-modal').style.display = 'none';
+playlistResultGrid.innerHTML = "";
+
+const aliensToShow = [...playlistSelected]; // ← save a copy first
+playlistSelected = []; // ← now safe to reset
+playlistAliens = [...aliensFijos].sort(() => Math.random() - 0.5);
+updateProgress();
+
+aliensToShow.forEach(name => {  // ← use the copy
+  const alien = aliens.find(a => a.name === name);
+  if (!alien) return;
+  const card = document.createElement("div");
+  card.className = "result-alien-card";
+  card.innerHTML = `<img src="${alien.image}" alt="${alien.name}" /><span>${alien.name}</span>`;
+  playlistResultGrid.appendChild(card);
+});
           });
         });
       });
@@ -2789,17 +2832,21 @@ function verPlaylist(playlist) {
   playlistDetail.style.display = 'block';
   myPlaylistsTitle.textContent = playlist.nombre;
   myPlaylistsSubtitle.textContent = `${playlist.aliens.length} aliens`;
-
+  const aliensDePlaylist = playlist.aliens
+  .map(name => aliens.find(a => a.name === name))
+  .filter(Boolean);	
   playlistDetail.innerHTML = `
+    
       <!-- Botón volver -->
       <button id="btn-volver" style="background:transparent; border:1.5px solid #444; color:#aaa; border-radius:8px; padding:8px 16px; cursor:pointer; font-size:13px; margin-bottom:20px;">← Back</button>
 
       <!-- Grilla de aliens -->
       <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:24px;">
-        ${playlist.aliens.map(name => {
+        
+		${playlist.aliens.map(name => {
     const alien = aliens.find(a => a.name === name);
     return alien ? `
-            <div style="display:flex; flex-direction:column; align-items:center; gap:6px; background:#1e1e1e; border:1.5px solid #7CFC00; border-radius:10px; padding:10px; width:90px;">
+            <div class="playlist-detail-alien-card" data-name="${alien.name}" style="display:flex; flex-direction:column; align-items:center; gap:6px; background:#1e1e1e; border:1.5px solid #7CFC00; border-radius:10px; padding:10px; width:90px; cursor:pointer;">
               <img src="${alien.image}" style="width:60px; height:60px; object-fit:cover; border-radius:8px; background:#111;" />
               <span style="font-family:'Ethnocentric',sans-serif; font-size:9px; color:#7CFC00; text-align:center; line-height:1.2;">${alien.name}</span>
             </div>` : '';
@@ -2813,7 +2860,11 @@ function verPlaylist(playlist) {
         <button id="btn-eliminar" style="background:transparent; border:1.5px solid #ff4444; color:#ff4444; border-radius:8px; padding:10px 20px; cursor:pointer; font-family:'Ethnocentric',sans-serif; font-size:12px;">🗑️ Delete</button>
       </div>
     `;
-
+  playlistDetail.querySelectorAll('.playlist-detail-alien-card').forEach(function(card) {
+		card.addEventListener('click', function() {
+			abrirModalAlien(card.dataset.name, aliensDePlaylist);
+			});
+		});
   document.getElementById('btn-volver').addEventListener('click', function () {
     playlistDetail.style.display = 'none';
     playlistsList.style.display = 'block';

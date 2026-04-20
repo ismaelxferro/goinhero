@@ -104,9 +104,17 @@
 
     <main>
       <div class="search-box">
-        <input type="text" id="search-input" placeholder="Search alien..." />
-        <button id="clear-search" type="button">×</button>
-      </div>
+		<div class="search-input-wrapper">
+			<input type="text" id="search-input" placeholder="Search alien..." />
+			<button id="clear-search" type="button">×</button>
+		</div>
+
+	  <select id="sort-select">
+		<option value="omnitrix">Omnitrix order</option>
+		<option value="az">A–Z</option>
+		<option value="za">Z–A</option>
+	  </select>
+	  </div>
       <h2 id="classic-title" class="section-title classic-title">Prototype Omnitrix unlocked</h2>
       <section id="classic-container" class="alien-grid"></section>
 
@@ -270,7 +278,7 @@
         Ben 10: Alien Force (2008–2010) © Cartoon Network.<br>
         Ben 10: Ultimate Alien (2010–2012) © Cartoon Network.<br>
         Ben 10: Omniverse (2012–2014) © Cartoon Network.<br>
-        Ben 10 © Cartoon Network.
+        Ben 10 (2016–2021) © Cartoon Network.
       </p>
       <p>This is an unofficial fan-made project. No copyright infringement intended.</p>
       <button id="closeCopyrightModal" class="auth-btn">OK</button>
