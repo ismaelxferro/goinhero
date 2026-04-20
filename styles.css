@@ -1452,3 +1452,21 @@ body.playlist-lock {
   background: #111;
   color: #7CFC00;
 }
+@media (max-width: 768px) {
+  .search-box {
+    width: 90%;
+    max-width: 90%;
+  }
+
+  .search-input-wrapper {
+    flex: 1;
+    width: 100%;
+  }
+
+  #sort-select {
+    font-size: 11px;
+    padding: 10px 24px 10px 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
