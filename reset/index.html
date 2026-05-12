@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reset password</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    @font-face {
+      font-family: 'Ethnocentric';
+      src: url('../fonts/Ethnocentric.otf') format('opentype');
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #111;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .box {
+      border: 2px solid #7CFC00;
+      border-radius: 18px;
+      padding: 32px;
+      max-width: 420px;
+      background: #1e1e1e;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    h1 {
+      color: #7CFC00;
+      font-family: 'Ethnocentric', sans-serif;
+      font-size: 24px;
+    }
+
+    input, button {
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    input {
+      background: #111;
+      color: white;
+      border: 1.5px solid #444;
+    }
+
+    button {
+      background: linear-gradient(135deg,#7CFC00,#39a800);
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #msg {
+      font-size: 13px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Reset password</h1>
+
+    <input id="password" type="password" placeholder="New password">
+    <input id="confirm" type="password" placeholder="Confirm password">
+
+    <button id="save">Save new password</button>
+
+    <p id="msg"></p>
+  </div>
+
+  <script>
+    const supabase = window.supabase.createClient(
+      'SUPABASE_URL',
+      'SUPABASE_ANON_KEY'
+    );
+
+    const msg = document.getElementById('msg');
+
+    document.getElementById('save').addEventListener('click', async function () {
+      const password = document.getElementById('password').value.trim();
+      const confirm = document.getElementById('confirm').value.trim();
+
+      if (!password || !confirm) {
+        msg.textContent = 'Complete both fields.';
+        return;
+      }
+
+      if (password.length < 6) {
+        msg.textContent = 'Password must be at least 6 characters.';
+        return;
+      }
+
+      if (password !== confirm) {
+        msg.textContent = 'Passwords do not match.';
+        return;
+      }
+
+      const { error } = await supabase.auth.updateUser({
+        password: password
+      });
+
+      if (error) {
+        msg.textContent = error.message;
+        return;
+      }
+
+      msg.textContent = 'Password updated. You can now return to the app and log in.';
+    });
+  </script>
+</body>
+</html>
