@@ -2335,13 +2335,14 @@ authSubmit.addEventListener('click', async function () {
   }
 
   result = await supabase.auth.signUp({
-    email,
-    password,
-    options: {
-      data: {
-        username: username
-      }
+  email,
+  password,
+  options: {
+    emailRedirectTo: 'https://ismaelxferro.github.io/goinhero/confirmed/',
+    data: {
+      username: username
     }
+  }
   });
 
   if (result.error) {
