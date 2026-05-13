@@ -86,35 +86,65 @@
   );
 
   const msg = document.getElementById('msg');
+  const saveBtn = document.getElementById('save');
 
   async function loadRecoverySession() {
-    const params = new URLSearchParams(window.location.hash.substring(1));
+    msg.textContent = 'Loading recovery session...';
 
-    const access_token = params.get('access_token');
-    const refresh_token = params.get('refresh_token');
+    const hashParams = new URLSearchParams(window.location.hash.substring(1));
+    const urlParams = new URLSearchParams(window.location.search);
 
-    if (!access_token || !refresh_token) {
-      msg.textContent = 'Invalid or expired recovery link.';
-      return;
+    const access_token = hashParams.get('access_token');
+    const refresh_token = hashParams.get('refresh_token');
+    const code = urlParams.get('code');
+
+    if (access_token && refresh_token) {
+      const { error } = await supabase.auth.setSession({
+        access_token,
+        refresh_token
+      });
+
+      if (error) {
+        msg.textContent = error.message;
+        return false;
+      }
+
+      msg.textContent = '';
+      return true;
     }
 
-    const { error } = await supabase.auth.setSession({
-      access_token,
-      refresh_token
-    });
+    if (code) {
+      const { error } = await supabase.auth.exchangeCodeForSession(code);
 
-    if (error) {
-      msg.textContent = error.message;
+      if (error) {
+        msg.textContent = error.message;
+        return false;
+      }
+
+      msg.textContent = '';
+      return true;
     }
+
+    msg.textContent = 'Invalid or expired recovery link.';
+    return false;
   }
 
-  loadRecoverySession();
+  let recoveryReady = false;
 
-  document.getElementById('save').addEventListener('click', async function () {
+  loadRecoverySession().then(function (ok) {
+    recoveryReady = ok;
+  });
+
+  saveBtn.addEventListener('click', async function () {
     const password = document.getElementById('password').value.trim();
     const confirm = document.getElementById('confirm').value.trim();
 
     msg.textContent = '';
+
+    if (!recoveryReady) {
+      msg.textContent = 'Recovery session not ready. Open the latest recovery email link again.';
+      return;
+    }
 
     if (!password || !confirm) {
       msg.textContent = 'Complete both fields.';
@@ -131,16 +161,22 @@
       return;
     }
 
+    saveBtn.disabled = true;
+    saveBtn.textContent = 'Saving...';
+
     const { error } = await supabase.auth.updateUser({
       password: password
     });
 
     if (error) {
       msg.textContent = error.message;
+      saveBtn.disabled = false;
+      saveBtn.textContent = 'Save new password';
       return;
     }
 
     msg.textContent = 'Password updated. You can now return to the app and log in.';
+    saveBtn.textContent = 'Password updated';
   });
 </script>
 </body>
