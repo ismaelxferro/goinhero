@@ -10,7 +10,7 @@
   <style>
     @font-face {
       font-family: 'Ethnocentric';
-      src: url('../fonts/Ethnocentric.otf') format('opentype');
+      src: url('../fonts/Ethnocentric-Regular.otf') format('opentype');
     }
 
     body {
@@ -67,6 +67,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="box">
     <h1>Reset password</h1>
@@ -80,104 +81,104 @@
   </div>
 
   <script>
-  const supabase = window.supabase.createClient(
-  'https://grhnhivorxtoxugwwilc.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdyaG5oaXZvcnh0b3h1Z3d3aWxjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0MTIzMTEsImV4cCI6MjA5MDk4ODMxMX0.A8lzPZT0AAEoLURgE_qVseOBFBNSNFu1mdIEtHPu50w'
-);
+    const supabaseClient = window.supabase.createClient(
+      'https://grhnhivorxtoxugwwilc.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdyaG5oaXZvcnh0b3h1Z3d3aWxjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0MTIzMTEsImV4cCI6MjA5MDk4ODMxMX0.A8lzPZT0AAEoLURgE_qVseOBFBNSNFu1mdIEtHPu50w'
+    );
 
-  const msg = document.getElementById('msg');
-  const saveBtn = document.getElementById('save');
+    const msg = document.getElementById('msg');
+    const saveBtn = document.getElementById('save');
 
-  async function loadRecoverySession() {
-    msg.textContent = 'Loading recovery session...';
+    async function loadRecoverySession() {
+      msg.textContent = 'Loading recovery session...';
 
-    const hashParams = new URLSearchParams(window.location.hash.substring(1));
-    const urlParams = new URLSearchParams(window.location.search);
+      const hashParams = new URLSearchParams(window.location.hash.substring(1));
+      const urlParams = new URLSearchParams(window.location.search);
 
-    const access_token = hashParams.get('access_token');
-    const refresh_token = hashParams.get('refresh_token');
-    const code = urlParams.get('code');
+      const access_token = hashParams.get('access_token');
+      const refresh_token = hashParams.get('refresh_token');
+      const code = urlParams.get('code');
 
-    if (access_token && refresh_token) {
-      const { error } = await supabase.auth.setSession({
-        access_token,
-        refresh_token
+      if (access_token && refresh_token) {
+        const { error } = await supabaseClient.auth.setSession({
+          access_token,
+          refresh_token
+        });
+
+        if (error) {
+          msg.textContent = error.message;
+          return false;
+        }
+
+        msg.textContent = '';
+        return true;
+      }
+
+      if (code) {
+        const { error } = await supabaseClient.auth.exchangeCodeForSession(code);
+
+        if (error) {
+          msg.textContent = error.message;
+          return false;
+        }
+
+        msg.textContent = '';
+        return true;
+      }
+
+      msg.textContent = 'Invalid or expired recovery link.';
+      return false;
+    }
+
+    let recoveryReady = false;
+
+    loadRecoverySession().then(function (ok) {
+      recoveryReady = ok;
+    });
+
+    saveBtn.addEventListener('click', async function () {
+      const password = document.getElementById('password').value.trim();
+      const confirm = document.getElementById('confirm').value.trim();
+
+      msg.textContent = '';
+
+      if (!recoveryReady) {
+        msg.textContent = 'Recovery session not ready. Open the latest recovery email link again.';
+        return;
+      }
+
+      if (!password || !confirm) {
+        msg.textContent = 'Complete both fields.';
+        return;
+      }
+
+      if (password.length < 6) {
+        msg.textContent = 'Password must be at least 6 characters.';
+        return;
+      }
+
+      if (password !== confirm) {
+        msg.textContent = 'Passwords do not match.';
+        return;
+      }
+
+      saveBtn.disabled = true;
+      saveBtn.textContent = 'Saving...';
+
+      const { error } = await supabaseClient.auth.updateUser({
+        password: password
       });
 
       if (error) {
         msg.textContent = error.message;
-        return false;
+        saveBtn.disabled = false;
+        saveBtn.textContent = 'Save new password';
+        return;
       }
 
-      msg.textContent = '';
-      return true;
-    }
-
-    if (code) {
-      const { error } = await supabase.auth.exchangeCodeForSession(code);
-
-      if (error) {
-        msg.textContent = error.message;
-        return false;
-      }
-
-      msg.textContent = '';
-      return true;
-    }
-
-    msg.textContent = 'Invalid or expired recovery link.';
-    return false;
-  }
-
-  let recoveryReady = false;
-
-  loadRecoverySession().then(function (ok) {
-    recoveryReady = ok;
-  });
-
-  saveBtn.addEventListener('click', async function () {
-    const password = document.getElementById('password').value.trim();
-    const confirm = document.getElementById('confirm').value.trim();
-
-    msg.textContent = '';
-
-    if (!recoveryReady) {
-      msg.textContent = 'Recovery session not ready. Open the latest recovery email link again.';
-      return;
-    }
-
-    if (!password || !confirm) {
-      msg.textContent = 'Complete both fields.';
-      return;
-    }
-
-    if (password.length < 6) {
-      msg.textContent = 'Password must be at least 6 characters.';
-      return;
-    }
-
-    if (password !== confirm) {
-      msg.textContent = 'Passwords do not match.';
-      return;
-    }
-
-    saveBtn.disabled = true;
-    saveBtn.textContent = 'Saving...';
-
-    const { error } = await supabase.auth.updateUser({
-      password: password
+      msg.textContent = 'Password updated. You can now return to the app and log in.';
+      saveBtn.textContent = 'Password updated';
     });
-
-    if (error) {
-      msg.textContent = error.message;
-      saveBtn.disabled = false;
-      saveBtn.textContent = 'Save new password';
-      return;
-    }
-
-    msg.textContent = 'Password updated. You can now return to the app and log in.';
-    saveBtn.textContent = 'Password updated';
-  });
-</script>
+  </script>
 </body>
 </html>
