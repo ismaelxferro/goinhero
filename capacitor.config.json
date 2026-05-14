@@ -1,5 +1,10 @@
 {
   "appId": "com.ismaelxferro.goinhero",
   "appName": "Goin' Hero",
-  "webDir": "dist"
+  "webDir": "www",
+  "server": {
+    "allowNavigation": [
+      "*.supabase.co"
+    ]
+  }
 }
