@@ -3,3 +3,8 @@
 node_modules/
 dist/
 supabase/.temp/
+*.jks
+*.keystore
+*.apk
+android/app/build/
+www/

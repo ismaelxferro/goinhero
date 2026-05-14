@@ -1639,11 +1639,6 @@ sortSelect.addEventListener("change", function () {
   aplicarOrden();
 });
 
-sortSelect.addEventListener("change", function () {
-  sortMode = sortSelect.value;
-  aplicarOrden();
-});
-
 function aplicarOrden() {
   const texto = buscador.value.toLowerCase();
   let lista = aliensFijos.filter(function (alien) {
@@ -1667,6 +1662,11 @@ function aplicarOrden() {
   [classicTitle, alienForceTitle, ultimateTitle, omniverseTitle, rebootTitle].forEach(t => {
     if (t) t.style.display = isSorted ? "none" : "";
   });
+}
+
+function resetAlienOrder() {
+  sortMode = "omnitrix";
+  sortSelect.value = "omnitrix";
 }
 
 function obtenerSeriesDisponibles(alien) {
@@ -1952,7 +1952,11 @@ let scrollGuardado = 0;
 (function () {
   let playlistSelected = [];
   let editingPlaylist = null;
-  let playlistAliens = [...aliensFijos].sort(() => Math.random() - 0.5);
+
+  let createDraftSelected = [];
+  let createDraftAliens = [...aliensFijos].sort(() => Math.random() - 0.5);
+
+  let playlistAliens = [...createDraftAliens];
   const fab = document.getElementById("playlist-fab");
   const fabCount = document.getElementById("fab-count");
   const playlistModal = document.getElementById("playlist-modal");
@@ -2121,27 +2125,40 @@ let scrollGuardado = 0;
     renderAlienList(filter);
     updateProgress();
   }
+  
+  function resetPlaylistCreator() {
+  playlistSelected = [];
+  editingPlaylist = null;
+  playlistSearch.value = "";
+  playlistAliens = [...aliensFijos].sort(() => Math.random() - 0.5);
+  }
 
 
   function openPlaylistModal() {
   setPlaylistMode("create");
-
+  playlistSelected = [...createDraftSelected];
   // Solo randomiza si no hay nada seleccionado
   if (playlistSelected.length === 0) {
-    playlistAliens = [...aliensFijos].sort(() => Math.random() - 0.5);
+    createDraftAliens = [...aliensFijos].sort(() => Math.random() - 0.5);
   }
-
+  playlistAliens = [...createDraftAliens];
   playlistModalBody.style.display = "flex";
   playlistModalFooter.style.display = "flex";
   playlistResult.style.display = "none";
   document.getElementById('close-playlist-modal').style.display = 'block';
-  refreshAll();
   playlistSearch.value = "";
+  refreshAll();
   playlistModal.classList.add("show");
   bloquearScrollFondo();
 }
 
   function closePlaylist() {
+  const estabaEditando = editingPlaylist !== null;
+
+  if (!estabaEditando) {
+    createDraftSelected = [...playlistSelected];
+    createDraftAliens = [...playlistAliens];
+  }
   playlistModal.classList.remove("show");
 
   playlistSearch.value = "";
@@ -2152,6 +2169,9 @@ let scrollGuardado = 0;
   document.getElementById('close-playlist-modal').style.display = 'block';
 
   setPlaylistMode("create");
+  playlistSelected = [...createDraftSelected];
+  playlistAliens = [...createDraftAliens];
+  
   refreshAll();
   desbloquearScrollFondo();
 }
@@ -2185,9 +2205,13 @@ playlistResult.style.display = "flex";
 document.getElementById('close-playlist-modal').style.display = 'none';
 playlistResultGrid.innerHTML = "";
 
-const aliensToShow = [...playlistSelected]; // ← save a copy first
-playlistSelected = []; // ← now safe to reset
-playlistAliens = [...aliensFijos].sort(() => Math.random() - 0.5);
+const aliensToShow = [...playlistSelected];
+playlistSelected = [];
+createDraftSelected = [];
+
+createDraftAliens = [...aliensFijos].sort(() => Math.random() - 0.5);
+playlistAliens = [...createDraftAliens];
+
 updateProgress();
 
 aliensToShow.forEach(name => {  // ← use the copy
@@ -2395,6 +2419,8 @@ async function mostrarApp(sessionActual) {
   authScreen.style.display = 'none';
   mainContent.style.display = 'block';
   isUserLoggedIn = true;
+  resetAlienOrder();
+  aplicarOrden();
 
   requestAnimationFrame(function () {
     ajustarTitulos();
@@ -2442,13 +2468,18 @@ async function mostrarApp(sessionActual) {
 
 // Verificar si ya hay sesión activa
 supabase.auth.onAuthStateChange(async function (event, session) {
+  if (event === 'PASSWORD_RECOVERY') {
+    openResetPasswordModal();
+    return;
+  }
+
   if (event === 'SIGNED_OUT' || !session) {
-    mostrarLogin();
+    mostrarLogin(true);
     return;
   }
 
   isUserLoggedIn = true;
-  mostrarApp();
+  mostrarApp(session);
 });
 
 async function initAuth() {
@@ -2480,9 +2511,10 @@ authForgot.addEventListener('click', async function () {
     return;
   }
 
-  const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: window.location.origin + window.location.pathname
-  });
+	const { error } = await supabase.auth.resetPasswordForEmail(email, {
+  redirectTo: 'https://ismaelxferro.github.io/goinhero/reset/'
+  
+});
 
   if (error) {
     authError.textContent = error.message;
@@ -2662,10 +2694,10 @@ async function deleteMyAccount() {
 btnLogout.addEventListener('click', async function () {
   cerrarSidebar();
   await supabase.auth.signOut();
-  mostrarLogin();
+  mostrarLogin(true);
 });const mobileSidebarWidth = '82vw';
 
-function mostrarLogin() {
+function mostrarLogin(limpiarCampos = false) {
   isUserLoggedIn = false;
   sidebarAbierto = false;
 
@@ -2677,6 +2709,32 @@ function mostrarLogin() {
   sidebarToggle.style.display = 'none';
 
   myPlaylistsModal.style.display = 'none';
+  playlistFab.style.display = 'none';
+  playlistFab.classList.remove('sidebar-blurred');
+  
+  if (limpiarCampos) {
+    authEmail.value = '';
+    authPassword.value = '';
+    authUsername.value = '';
+
+    authError.textContent = '';
+    authError.style.display = 'none';
+
+    authMessage.textContent = '';
+    authMessage.style.display = 'none';
+
+    isLogin = true;
+    authTitle.textContent = 'Login';
+    authSubmit.textContent = 'Login';
+    authSwitch.textContent = 'Don´t have an account? Register now';
+    authUsername.style.display = 'none';
+
+    setTimeout(function () {
+      authEmail.value = '';
+      authPassword.value = '';
+      authUsername.value = '';
+    }, 50);
+  }
 
   updatePlaylistFabVisibility();
   desbloquearScrollFondo();
